@@ -7,6 +7,7 @@ public class Map {
 
 	public int LANE_HEIGHT = 40;
 	
+	public String backgroundImage;
 	public int numberOfColumns;
 	public int numberOfRows;
 	public int frogStartCol;
@@ -15,8 +16,12 @@ public class Map {
 	public ArrayList<Sprite> enemies;
 	
 	public Map() {
+		
+		backgroundImage = "Frogger with pipes.png";
+		
 		numberOfColumns = 13;
 		numberOfRows = 13;
+		
 		frogStartCol = 5;
 		frogStartRow = 9;
 		
