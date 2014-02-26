@@ -19,7 +19,7 @@ public class Game {
 		loadMap(map);
 		
 		// Create the GamePanel
-		this.panel = new GamePanel(map.backgroundImage);
+		this.panel = new GamePanel(map.getBackgroundImage());
 		this.panel.addGameListener(new GameKeyListener());
 
 //		// Play

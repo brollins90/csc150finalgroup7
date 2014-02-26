@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<SuperFrogger>
+  <Map>
+    <Name>Level 1 - Mario</Name>
+    <BackgroundImage>lvl01_bg.png</BackgroundImage>
+    <FrogColumn>7</FrogColumn>
+    <FrogRow>13</FrogRow>
+    <LaneHeight>40</LaneHeight>
+    <NumberOfColumns>13</NumberOfColumns>
+    <NumberOfRows>13</NumberOfRows>
+  </Map>
+</SuperFrogger>

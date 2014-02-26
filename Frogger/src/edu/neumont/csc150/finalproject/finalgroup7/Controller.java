@@ -16,7 +16,7 @@ public class Controller {
 //		frame.setLocationRelativeTo(null);
 		
 		// Open the Map Loader Panel
-		Map currentMap = new Map();
+		Map currentMap = new Map("lvl01.xml");
 		
 //		// Start main frogger game with selected map
 		Game currentGame = new Game(currentMap);
