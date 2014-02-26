@@ -3,10 +3,85 @@
   <Map>
     <Name>Level 1 - Mario</Name>
     <BackgroundImage>lvl01_bg.png</BackgroundImage>
-    <FrogColumn>7</FrogColumn>
-    <FrogRow>13</FrogRow>
+    <ColumnWidth>25</ColumnWidth>
     <LaneHeight>40</LaneHeight>
     <NumberOfColumns>13</NumberOfColumns>
     <NumberOfRows>13</NumberOfRows>
+    
+    <Frog>
+    	<Column>7</Column>
+    	<Image>standing up.png</Image>
+    </Frog>
+    
+    <!-- Lane 0 (Pipes) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!-- Lane 1 (Wiggler left) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    	<Sprite>
+    		<XCoord>0</XCoord>
+    		<MovesLeft>true</MovesLeft>
+    		<Speed>4</Speed>
+    		<Image>Wiggler Floating.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>100</XCoord>
+    		<MovesLeft>true</MovesLeft>
+    		<Speed>4</Speed>
+    		<Image>Wiggler Floating.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>200</XCoord>
+    		<MovesLeft>true</MovesLeft>
+    		<Speed>4</Speed>
+    		<Image>Wiggler Floating.png</Image>
+    	</Sprite>
+    </Lane>
+    <!--  Lane 2 (Wiggler left) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 3 (Wiggler left) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 4 (Wiggler left) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 5 (Wiggler left) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 6 (Bricks) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 7 (Road) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 8 (Road) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 9 (Road) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 10 (Road) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 11 (Road) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 12 (Bricks) -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
   </Map>
 </SuperFrogger>

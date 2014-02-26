@@ -14,23 +14,40 @@ import org.w3c.dom.NodeList;
 public class Map {
 
 	private String mapBackgroundImage;
-	private int mapFrogColumn;
-	private int mapFrogRow;
+	private int mapColumnWidth;
 	private int mapLaneHeight;
 	private String mapName;
 	private int mapNumberOfColumns;
 	private int mapNumberOfRows;
 	
+	private Frog frog;
+	private Lane[] lanes;
+	
 	public String getBackgroundImage() {
 		return this.mapBackgroundImage;
+	}
+	
+	public int getColumnWidth() {
+		return this.mapColumnWidth;
+	}
+	
+	public int getNumberOfColumns() {
+		return this.mapNumberOfColumns;
+	}
+	
+	public Frog getFrog() {
+		return this.frog;
+	}
+	
+	public Lane[] getLanes() {
+		return this.lanes;
 	}
 	
 	
 	//public String backgroundImage;
 	//public int frogStartCol;
 	//public int frogStartRow;
-	public Lane[] lanes;
-	public ArrayList<Sprite> enemies;
+	//public ArrayList<Sprite> enemies;
 	
 	public Map(String xmlName) {
 		
@@ -53,80 +70,47 @@ public class Map {
 
 				this.mapName = curNode.getElementsByTagName("Name").item(0).getFirstChild().getTextContent();
 				this.mapBackgroundImage = curNode.getElementsByTagName("BackgroundImage").item(0).getFirstChild().getTextContent();
-				this.mapFrogColumn = Integer.parseInt(curNode.getElementsByTagName("FrogColumn").item(0).getFirstChild().getTextContent());
-				this.mapFrogRow = Integer.parseInt(curNode.getElementsByTagName("FrogRow").item(0).getFirstChild().getTextContent());
+				this.mapColumnWidth = Integer.parseInt(curNode.getElementsByTagName("ColumnWidth").item(0).getFirstChild().getTextContent());
 				this.mapLaneHeight = Integer.parseInt(curNode.getElementsByTagName("LaneHeight").item(0).getFirstChild().getTextContent());
 				this.mapNumberOfColumns = Integer.parseInt(curNode.getElementsByTagName("NumberOfColumns").item(0).getFirstChild().getTextContent());
-				this.mapNumberOfRows = Integer.parseInt(curNode.getElementsByTagName("NumberOfRows").item(0).getFirstChild().getTextContent());
+				//this.mapNumberOfRows = Integer.parseInt(curNode.getElementsByTagName("NumberOfRows").item(0).getFirstChild().getTextContent());
 				
 				
+				NodeList laneNodes = curNode.getElementsByTagName("Lane");
+				
+				this.mapNumberOfRows = laneNodes.getLength();
+				this.lanes = new Lane[this.mapNumberOfRows];
+				
+
+				NodeList frogNodes = curNode.getElementsByTagName("Frog");
+				Element frogElement = (Element) frogNodes.item(0);
+				int frogColumn = Integer.parseInt(frogElement.getElementsByTagName("Column").item(0).getFirstChild().getTextContent());
+				String frogImage = frogElement.getElementsByTagName("Image").item(0).getFirstChild().getTextContent();
+				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 1) * this.mapLaneHeight), false, 0, frogImage);
 				
 				
-			}
-			
-	//		backgroundImage = "SuperFrogger\Map\BackgroundImage";
-			//backgroundImage = "Frogger with pipes.png";
-			
-//			numberOfColumns = 13;
-//			numberOfRows = 13;
-			
-//			frogStartCol = 5;
-//			frogStartRow = 9;
-			
-			lanes = new Lane[this.mapNumberOfRows];
-			
-			// Lane 0 - Pipes
-			lanes[0] = new Lane(new ArrayList<Sprite>(), true);
-			
-			// Lane 1 - Wiggler left
-			lanes[1] = new Lane(new ArrayList<Sprite>(), true);
-			lanes[1].addSprite(new Enemy(new Point(0, 1 * this.mapLaneHeight), true, 4, "Wiggler Floating.png"));
-			lanes[1].addSprite(new Enemy(new Point(100, 1 * this.mapLaneHeight), true, 4, "Wiggler Floating.png"));
-			
-			// Lane 2 - Wiggler left
-			lanes[2] = new Lane(new ArrayList<Sprite>(), true);
-			
-			// Lane 3 - Wiggler left
-			lanes[3] = new Lane(new ArrayList<Sprite>(), true);
-			
-			// Lane 4 - Wiggler left
-			lanes[4] = new Lane(new ArrayList<Sprite>(), true);
-			
-			// Lane 5 - Wiggler left
-			lanes[5] = new Lane(new ArrayList<Sprite>(), true);
-			
-			// Lane 6 - Bricks
-			lanes[6] = new Lane(new ArrayList<Sprite>(), true);
-			
-			// Lane 7 - Road
-			lanes[7] = new Lane(new ArrayList<Sprite>(), true);
-			
-			// Lane 8 - Road
-			lanes[8] = new Lane(new ArrayList<Sprite>(), true);
-			
-			// Lane 9 - Road
-			lanes[9] = new Lane(new ArrayList<Sprite>(), true);
-			
-			// Lane 10 - Road
-			lanes[10] = new Lane(new ArrayList<Sprite>(), true);
-			
-			// Lane 11 - Road
-			lanes[11] = new Lane(new ArrayList<Sprite>(), true);
-			
-			// Lane 12 - Bricks
-			
-			enemies = new ArrayList<>();
-			enemies.add(new Enemy(new Point(10,1), true, 1, "1up shroom.png"));
-			enemies.add(new Enemy(new Point(50,1), true, 1, "1up shroom.png"));
-			enemies.add(new Enemy(new Point(100,1), true, 1, "1up shroom.png"));
-			lanes[12] = new Lane(enemies, false);
-			
-	//		enemies.add(new Enemy(2, 8, -1, Color.RED, new ImageIcon("")));
-	//		enemies.add(new Enemy(4, 8, -1, Color.RED, new ImageIcon("")));
-	//		enemies.add(new Enemy(6, 8, -1, Color.RED, new ImageIcon("")));
-	//		enemies.add(new Enemy(3, 7, -2, Color.ORANGE, new ImageIcon("")));
-	//		enemies.add(new Enemy(5, 7, -2, Color.ORANGE, new ImageIcon("")));
-	//		enemies.add(new Enemy(7, 7, -2, Color.ORANGE, new ImageIcon("")));		
+				for (int laneIndex = 0; laneIndex < laneNodes.getLength(); laneIndex++) {
+					Element curLane = (Element) laneNodes.item(laneIndex);
+					boolean laneIsBad = Boolean.parseBoolean(curNode.getElementsByTagName("Lane").item(0).getFirstChild().getTextContent());
+					
+					// Create the Lane object and add it the the Array
+					this.lanes[laneIndex] = new Lane(new ArrayList<Sprite>(), laneIsBad);
+					
+					// Find the enemies and add them to the Lane
+					NodeList spriteList = curLane.getElementsByTagName("Sprite");
+					for (int spriteIndex = 0; spriteIndex < spriteList.getLength(); spriteIndex++) {
+						Element curSprite = (Element) spriteList.item(spriteIndex);
+
+						int spriteXCoord = Integer.parseInt(curSprite.getElementsByTagName("XCoord").item(0).getFirstChild().getTextContent());
+						int spriteYCoord = laneIndex * this.mapLaneHeight;
+						boolean spriteMovesLeft = Boolean.parseBoolean(curSprite.getElementsByTagName("MovesLeft").item(0).getFirstChild().getTextContent());
+						int spriteSpeed = Integer.parseInt(curSprite.getElementsByTagName("Speed").item(0).getFirstChild().getTextContent());
+						String spriteImage = curSprite.getElementsByTagName("Image").item(0).getFirstChild().getTextContent();
+						
+						this.lanes[laneIndex].addSprite(new Enemy(new Point(spriteXCoord, spriteYCoord), spriteMovesLeft, spriteSpeed, spriteImage));
+					} // end Sprites					
+				} // end Lanes
+			} // end Map
 		} catch (Exception e) {
 			System.out.println("wait");
 		}

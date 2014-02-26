@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
@@ -11,12 +12,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+
 public class GamePanel extends JPanel{
 	Image background;
 	private KeyListener gameListener;
 	
 	ArrayList<Sprite> sprites;
-	Sprite frog;
+	Frog frog;
 	
 	public GamePanel(String backgroundImage) {
 		
@@ -30,6 +32,9 @@ public class GamePanel extends JPanel{
 		// Set the background 
 		String path = ClassLoader.getSystemClassLoader().getResource(".").getPath() + backgroundImage;
 		this.background = new ImageIcon(path).getImage();
+		
+		this.setFocusable(true);
+		this.addKeyListener(new PanelKeyListener());
 		
 		// TODO set preferredSize
 		this.setPreferredSize(new Dimension(350,520));
@@ -54,7 +59,7 @@ public class GamePanel extends JPanel{
 		}
 		
 		// Paint the frog
-		
+		g.drawImage(frog.getimage(), frog.getPosition().x, frog.getPosition().y, null);
 	}
 	
 	public void addGameListener(KeyListener gameListener) {
@@ -63,6 +68,32 @@ public class GamePanel extends JPanel{
 	
 	public void addSprites(ArrayList<Sprite> newSprites) {
 		this.sprites = newSprites;
+	}
+	
+	public void addFrog(Frog newFrog) {
+		this.frog = newFrog;
+	}
+	
+	private class PanelKeyListener implements KeyListener {
+
+		@Override
+		public void keyPressed(KeyEvent arg0) {
+			//System.out.println("panel-keyPressed: " + arg0.getKeyCode());
+			gameListener.keyPressed(arg0);
+		}
+
+		@Override
+		public void keyReleased(KeyEvent arg0) {
+			//System.out.println("panel-keyReleased: " + arg0.getKeyCode());
+			gameListener.keyReleased(arg0);
+		}
+
+		@Override
+		public void keyTyped(KeyEvent arg0) {
+			//System.out.println("panel-keyTyped: " + arg0.getKeyCode());
+			gameListener.keyTyped(arg0);
+		}
+		
 	}
 	
 

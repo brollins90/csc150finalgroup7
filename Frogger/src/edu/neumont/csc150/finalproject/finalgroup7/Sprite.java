@@ -60,6 +60,10 @@ public abstract class Sprite {
 		return false;
 	}
 	
+	public void setPosition(Point newPosition) {
+		this.position = newPosition;
+	}
+	
 	
 
 }
