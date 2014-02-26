@@ -12,7 +12,7 @@ public class Game {
 	private GamePanel panel;
 	private Frog frog;
 	private ArrayList<Sprite> sprites;
-	
+	private int a = 0;
 	
 	public Game(Map map) {
 		// Load the map
@@ -87,21 +87,38 @@ public class Game {
 	
 	public void receiveKey (int keyCode) {
 		//System.out.println("key was received: " + keyCode);
+		
 		switch (keyCode) {
 		case 37:
 			System.out.println("Left");
+			if(a !=1){
+			frog.setImage("moving sideways.png");
+			a=1;
+			}
 			moveFrog(new Point(-1, 0));
 			break;
 		case 38:
 			System.out.println("Up");
 			moveFrog(new Point(0, -1));
+			if(a !=2){
+			frog.setImage("moving up.png");
+			a=2;
+			}
 			break;
 		case 39:
 			System.out.println("Right");
+			if(a !=3){
+			frog.setImage("moving sideways.png");
+			a=3;
+			}
 			moveFrog(new Point(1, 0));
 			break;
 		case 40:
 			System.out.println("Down");
+			if(a !=4){
+			frog.setImage("moving down.png");
+			a=4;
+			}
 			moveFrog(new Point(0, 1));
 			break;
 		default:

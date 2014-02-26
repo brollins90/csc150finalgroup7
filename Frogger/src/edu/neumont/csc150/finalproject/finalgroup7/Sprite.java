@@ -21,8 +21,12 @@ public abstract class Sprite {
 		this.width = image.getWidth(null);		
 	}
 	
-	public Image getimage() {
+	public Image getImage() {
 		return this.image;
+	}
+	
+	public void setImage(String newImage){
+		this.image = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + newImage);
 	}
 	
 	public boolean getMovingLeft() {

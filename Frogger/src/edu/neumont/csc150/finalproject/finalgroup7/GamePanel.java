@@ -55,11 +55,11 @@ public class GamePanel extends JPanel{
 		
 		// Paint the Enemies
 		for (Sprite s : this.sprites) {
-			g.drawImage(s.getimage(), s.getPosition().x, s.getPosition().y, null);
+			g.drawImage(s.getImage(), s.getPosition().x, s.getPosition().y, null);
 		}
 		
 		// Paint the frog
-		g.drawImage(frog.getimage(), frog.getPosition().x, frog.getPosition().y, null);
+		g.drawImage(frog.getImage(), frog.getPosition().x, frog.getPosition().y, null);
 	}
 	
 	public void addGameListener(KeyListener gameListener) {
@@ -87,12 +87,14 @@ public class GamePanel extends JPanel{
 		public void keyReleased(KeyEvent arg0) {
 			//System.out.println("panel-keyReleased: " + arg0.getKeyCode());
 			gameListener.keyReleased(arg0);
+			repaint();
 		}
 
 		@Override
 		public void keyTyped(KeyEvent arg0) {
 			//System.out.println("panel-keyTyped: " + arg0.getKeyCode());
 			gameListener.keyTyped(arg0);
+			//repaint();
 		}
 		
 	}
