@@ -92,7 +92,7 @@ public class Game {
 		case 37:
 			System.out.println("Left");
 			if(a !=1){
-			frog.setImage("moving sideways.png");
+			frog.setImage("moving left.png");
 			a=1;
 			}
 			moveFrog(new Point(-1, 0));
@@ -108,7 +108,7 @@ public class Game {
 		case 39:
 			System.out.println("Right");
 			if(a !=3){
-			frog.setImage("moving sideways.png");
+			frog.setImage("moving right.png");
 			a=3;
 			}
 			moveFrog(new Point(1, 0));

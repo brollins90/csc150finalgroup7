@@ -94,7 +94,6 @@ public class GamePanel extends JPanel{
 		public void keyTyped(KeyEvent arg0) {
 			//System.out.println("panel-keyTyped: " + arg0.getKeyCode());
 			gameListener.keyTyped(arg0);
-			//repaint();
 		}
 		
 	}
