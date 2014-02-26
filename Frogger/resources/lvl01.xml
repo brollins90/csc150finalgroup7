@@ -5,7 +5,7 @@
     <BackgroundImage>lvl01_bg.png</BackgroundImage>
     <ColumnWidth>25</ColumnWidth>
     <LaneHeight>40</LaneHeight>
-    <NumberOfColumns>13</NumberOfColumns>
+    <NumberOfColumns>14</NumberOfColumns>
     <NumberOfRows>13</NumberOfRows>
     
     <Frog>

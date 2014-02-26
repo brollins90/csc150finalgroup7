@@ -71,17 +71,17 @@ public class Game {
 		// Move horizontal
 		if (movePoint.x != 0) {
 			int newColumn = this.frog.getPosition().x + (movePoint.x * this.map.getColumnWidth());
-			if (newColumn >= 0 && newColumn < map.getNumberOfColumns()) {
+			if (newColumn >= 0 && newColumn < map.getNumberOfColumns() * this.map.getColumnWidth()) {
 				this.frog.setPosition(new Point(newColumn, this.frog.getPosition().y));
 			}
 		}
 		// Move vertical
-//		if (movePoint.y != 0) {
-//			int newRow = this.frogPosition.y + movePoint.y;
-//			if (newRow >= 0 && newRow < map.numberOfRows) {
-//				this.frogPosition.y = newRow;
-//			}
-//		}
+		if (movePoint.y != 0) {
+			int newRow = this.frog.getPosition().y + (movePoint.y * this.map.getLaneHeight());
+			if (newRow >= 0 && newRow < map.getNumberOfRows() * this.map.getLaneHeight()) {
+				this.frog.setPosition(new Point(this.frog.getPosition().x, newRow));
+			}
+		}
 		updatePanel();
 	}
 	

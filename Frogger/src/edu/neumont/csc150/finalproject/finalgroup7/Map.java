@@ -31,8 +31,16 @@ public class Map {
 		return this.mapColumnWidth;
 	}
 	
+	public int getLaneHeight() {
+		return this.mapLaneHeight;
+	}
+	
 	public int getNumberOfColumns() {
 		return this.mapNumberOfColumns;
+	}
+	
+	public int getNumberOfRows() {
+		return this.mapNumberOfRows;
 	}
 	
 	public Frog getFrog() {

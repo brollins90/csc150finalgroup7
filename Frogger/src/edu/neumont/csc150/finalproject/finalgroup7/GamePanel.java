@@ -80,6 +80,7 @@ public class GamePanel extends JPanel{
 		public void keyPressed(KeyEvent arg0) {
 			//System.out.println("panel-keyPressed: " + arg0.getKeyCode());
 			gameListener.keyPressed(arg0);
+			repaint();
 		}
 
 		@Override
