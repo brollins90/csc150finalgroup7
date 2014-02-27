@@ -6,13 +6,8 @@ import java.awt.Toolkit;
 
 public abstract class Sprite {
 
-<<<<<<< .mine
 	protected Image image;
 	private boolean movingLeft;
-=======
-	protected Image image;
-	//private boolean movingLeft;
->>>>>>> .r18
 	private Point position;
 	private int speed;
 	private int width;

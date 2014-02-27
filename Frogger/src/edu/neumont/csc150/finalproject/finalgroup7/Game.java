@@ -2,12 +2,9 @@ package edu.neumont.csc150.finalproject.finalgroup7;
 
 import java.awt.Image;
 import java.awt.Point;
-<<<<<<< .mine
 import java.awt.Toolkit;
-=======
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
->>>>>>> .r18
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
