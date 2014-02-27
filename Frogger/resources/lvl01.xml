@@ -10,7 +10,10 @@
     
     <Frog>
     	<Column>7</Column>
-    	<Image>standing up.png</Image>
+    	<ImageUp>moving up.png</ImageUp>
+    	<ImageLeft>moving left.png</ImageLeft>
+    	<ImageRight>moving right.png</ImageRight>
+    	<ImageDown>moving down.png</ImageDown>
     </Frog>
     
     <!-- Lane 0 (Pipes) -->
@@ -22,20 +25,17 @@
     	<IsBad>true</IsBad>
     	<Sprite>
     		<XCoord>0</XCoord>
-    		<MovesLeft>true</MovesLeft>
-    		<Speed>4</Speed>
+    		<Speed>-4</Speed>
     		<Image>Wiggler Floating.png</Image>
     	</Sprite>
     	<Sprite>
     		<XCoord>100</XCoord>
-    		<MovesLeft>true</MovesLeft>
-    		<Speed>4</Speed>
+    		<Speed>-4</Speed>
     		<Image>Wiggler Floating.png</Image>
     	</Sprite>
     	<Sprite>
     		<XCoord>200</XCoord>
-    		<MovesLeft>true</MovesLeft>
-    		<Speed>4</Speed>
+    		<Speed>-4</Speed>
     		<Image>Wiggler Floating.png</Image>
     	</Sprite>
     </Lane>
