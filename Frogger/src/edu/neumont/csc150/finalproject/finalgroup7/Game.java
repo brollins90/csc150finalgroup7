@@ -1,8 +1,13 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
+import java.awt.Image;
 import java.awt.Point;
+<<<<<<< .mine
+import java.awt.Toolkit;
+=======
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+>>>>>>> .r18
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -16,6 +21,8 @@ public class Game {
 	private Frog frog;
 	private ArrayList<Sprite> sprites;
 	private int a = 0;
+	private int lives = 3;
+
 	
 	public Game(Map map) {
 		// Load the map
@@ -109,34 +116,22 @@ public class Game {
 		switch (keyCode) {
 		case 37:
 			System.out.println("Left");
-			if(a !=1){
-			frog.setImage("moving left.png");
-			a=1;
-			}
+			frog.setImage(0);
 			moveFrog(new Point(-1, 0));
 			break;
 		case 38:
 			System.out.println("Up");
 			moveFrog(new Point(0, -1));
-			if(a !=2){
-			frog.setImage("moving up.png");
-			a=2;
-			}
+			frog.setImage(1);
 			break;
 		case 39:
 			System.out.println("Right");
-			if(a !=3){
-			frog.setImage("moving right.png");
-			a=3;
-			}
+			frog.setImage(2);
 			moveFrog(new Point(1, 0));
 			break;
 		case 40:
 			System.out.println("Down");
-			if(a !=4){
-			frog.setImage("moving down.png");
-			a=4;
-			}
+			frog.setImage(3);
 			moveFrog(new Point(0, 1));
 			break;
 		default:

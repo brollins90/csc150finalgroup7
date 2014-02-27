@@ -6,8 +6,13 @@ import java.awt.Toolkit;
 
 public abstract class Sprite {
 
+<<<<<<< .mine
+	protected Image image;
+	private boolean movingLeft;
+=======
 	protected Image image;
 	//private boolean movingLeft;
+>>>>>>> .r18
 	private Point position;
 	private int speed;
 	private int width;
@@ -25,8 +30,8 @@ public abstract class Sprite {
 		return this.image;
 	}
 	
-	public void setImage(String newImage){
-		this.image = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + newImage);
+	public void setImage(Image newImage){
+		this.image = newImage;
 	}
 	
 //	public boolean getMovingLeft() {
