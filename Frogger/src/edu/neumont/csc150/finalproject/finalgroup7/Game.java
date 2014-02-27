@@ -1,10 +1,13 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
-import java.awt.Color;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+
+import javax.swing.Timer;
 
 public class Game {
 
@@ -21,6 +24,13 @@ public class Game {
 		// Create the GamePanel
 		this.panel = new GamePanel(map.getBackgroundImage());
 		this.panel.addGameListener(new GameKeyListener());
+		this.panel.addSprites(this.sprites);
+		this.panel.addFrog(this.frog);
+		
+		TimerListener tListener = new TimerListener();
+		Timer gameTimer = new Timer( 100, tListener);
+		gameTimer.setRepeats(true);
+		gameTimer.start();
 
 //		// Play
 //		updatePanel();
@@ -44,13 +54,14 @@ public class Game {
 	}
 
 	private void updatePanel() {
-		// Print the background
-		//panel.printBackground();
-		// Print the Bad guys
-		this.panel.addSprites(this.sprites);
-		// Print the frog
-		this.panel.addFrog(this.frog);
-		//panel.placeObject(this.frogPosition.x, this.frogPosition.y, Color.GREEN);	
+//		// Print the background
+//		//panel.printBackground();
+//		// Print the Bad guys
+//		this.panel.addSprites(this.sprites);
+//		// Print the frog
+//		this.panel.addFrog(this.frog);
+//		//panel.placeObject(this.frogPosition.x, this.frogPosition.y, Color.GREEN);	
+		this.panel.repaint();
 	}
 	
 //	public int getNumberOfColumns() {
@@ -81,6 +92,13 @@ public class Game {
 			if (newRow >= 0 && newRow < map.getNumberOfRows() * this.map.getLaneHeight()) {
 				this.frog.setPosition(new Point(this.frog.getPosition().x, newRow));
 			}
+		}
+		updatePanel();
+	}
+	
+	private void moveSprites() {
+		for (Sprite s : sprites) {
+			s.move();
 		}
 		updatePanel();
 	}
@@ -125,6 +143,7 @@ public class Game {
 			System.out.println("Other: " + keyCode);
 			break;
 		}
+		//moveSprites();
 	}
 	
 	private class GameKeyListener implements KeyListener {
@@ -143,6 +162,15 @@ public class Game {
 		@Override
 		public void keyTyped(KeyEvent arg0) {
 			//System.out.println("game-keyTyped: " + arg0.getKeyCode());
+		}
+		
+	}
+	
+	private class TimerListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			moveSprites();
 		}
 		
 	}

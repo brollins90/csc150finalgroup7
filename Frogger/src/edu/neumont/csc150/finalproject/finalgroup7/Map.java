@@ -93,9 +93,12 @@ public class Map {
 				NodeList frogNodes = curNode.getElementsByTagName("Frog");
 				Element frogElement = (Element) frogNodes.item(0);
 				int frogColumn = Integer.parseInt(frogElement.getElementsByTagName("Column").item(0).getFirstChild().getTextContent());
-				String frogImage = frogElement.getElementsByTagName("Image").item(0).getFirstChild().getTextContent();
-				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 1) * this.mapLaneHeight), false, 0, frogImage);
-				
+				String frogImage = frogElement.getElementsByTagName("ImageUp").item(0).getFirstChild().getTextContent();
+				String frogImageLeft = frogElement.getElementsByTagName("ImageLeft").item(0).getFirstChild().getTextContent();
+				String frogImageRight = frogElement.getElementsByTagName("ImageRight").item(0).getFirstChild().getTextContent();
+				String frogImageDown = frogElement.getElementsByTagName("ImageDown").item(0).getFirstChild().getTextContent();
+				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 1) * this.mapLaneHeight), 0, frogImage);
+				this.frog.addAltImages(frogImageLeft, frogImageRight, frogImageDown);
 				
 				for (int laneIndex = 0; laneIndex < laneNodes.getLength(); laneIndex++) {
 					Element curLane = (Element) laneNodes.item(laneIndex);
@@ -111,11 +114,11 @@ public class Map {
 
 						int spriteXCoord = Integer.parseInt(curSprite.getElementsByTagName("XCoord").item(0).getFirstChild().getTextContent());
 						int spriteYCoord = laneIndex * this.mapLaneHeight;
-						boolean spriteMovesLeft = Boolean.parseBoolean(curSprite.getElementsByTagName("MovesLeft").item(0).getFirstChild().getTextContent());
+						//boolean spriteMovesLeft = Boolean.parseBoolean(curSprite.getElementsByTagName("MovesLeft").item(0).getFirstChild().getTextContent());
 						int spriteSpeed = Integer.parseInt(curSprite.getElementsByTagName("Speed").item(0).getFirstChild().getTextContent());
 						String spriteImage = curSprite.getElementsByTagName("Image").item(0).getFirstChild().getTextContent();
 						
-						this.lanes[laneIndex].addSprite(new Enemy(new Point(spriteXCoord, spriteYCoord), spriteMovesLeft, spriteSpeed, spriteImage));
+						this.lanes[laneIndex].addSprite(new Enemy(new Point(spriteXCoord, spriteYCoord), spriteSpeed, spriteImage));
 					} // end Sprites					
 				} // end Lanes
 			} // end Map

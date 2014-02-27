@@ -12,8 +12,8 @@ public class Lane {
 		this.isEvil = isEvilLane;
 	}
 
-	public void addSprite(Enemy enemy) {
-		sprites.add(enemy);
+	public void addSprite(Sprite s) {
+		sprites.add(s);
 	}
 
 }
