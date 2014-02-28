@@ -8,8 +8,9 @@ public abstract class Sprite {
 
 	protected Image image;
 	private boolean movingLeft;
-	private Point position;
-	private int speed;
+	//private boolean movingLeft;
+	protected Point position;
+	protected int speed;
 	private int width;
 	
 	public Sprite(Point startPosition, int spriteSpeed, String imagePath) {
@@ -66,6 +67,9 @@ public abstract class Sprite {
 	
 	public void move() {
 		this.position = new Point(this.position.x + speed, this.position.y);
+		if(this.position.x < -77){
+			this.position.x = 350;
+		}
 	}
 	
 	public void setPosition(Point newPosition) {

@@ -3,10 +3,15 @@ package edu.neumont.csc150.finalproject.finalgroup7;
 import java.awt.Point;
 
 public class Enemy extends Sprite {
-
+	protected boolean isEvil;
+	
 	public Enemy(Point startPosition, int spriteSpeed, String imagePath) {
 		super(startPosition, spriteSpeed, imagePath);
-		// TODO Auto-generated constructor stub
+		this.isEvil = true;
 	}
 
+	public boolean getIsEvil(){
+		return this.isEvil;
+	}
+	
 }

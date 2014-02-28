@@ -118,7 +118,7 @@ public class Map {
 						int spriteSpeed = Integer.parseInt(curSprite.getElementsByTagName("Speed").item(0).getFirstChild().getTextContent());
 						String spriteImage = curSprite.getElementsByTagName("Image").item(0).getFirstChild().getTextContent();
 						
-						this.lanes[laneIndex].addSprite(new Enemy(new Point(spriteXCoord, spriteYCoord), spriteSpeed, spriteImage));
+						this.lanes[laneIndex].addSprite(new Turtle(new Point(spriteXCoord, spriteYCoord), spriteSpeed, spriteImage, "Wiggler mad.png"));
 					} // end Sprites					
 				} // end Lanes
 			} // end Map
