@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <SuperFrogger>
   <Map>
+  	
     <Name>Level 1 - Mario</Name>
     <BackgroundImage>lvl01_bg.png</BackgroundImage>
     <ColumnWidth>25</ColumnWidth>
@@ -62,22 +63,97 @@
     <!--  Lane 7 (Road) -->
     <Lane>
     	<IsBad>true</IsBad>
+    	    	 <Sprite>
+    		<XCoord>0</XCoord>
+    		<Speed>-3</Speed>
+    		<Image>bob-omb pos1.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>100</XCoord>
+    		<Speed>-3</Speed>
+    		<Image>bob-omb pos1.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>200</XCoord>
+    		<Speed>-3</Speed>
+    		<Image>bob-omb pos1.png</Image>
+    	</Sprite>
     </Lane>
     <!--  Lane 8 (Road) -->
     <Lane>
     	<IsBad>true</IsBad>
+    	    	 <Sprite>
+    		<XCoord>0</XCoord>
+    		<Speed>4</Speed>
+    		<Image>Bullet Bill.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>100</XCoord>
+    		<Speed>4</Speed>
+    		<Image>Bullet Bill.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>200</XCoord>
+    		<Speed>4</Speed>
+    		<Image>Bullet Bill.png</Image>
+    	</Sprite>
     </Lane>
     <!--  Lane 9 (Road) -->
     <Lane>
     	<IsBad>true</IsBad>
+    	    	    	 <Sprite>
+    		<XCoord>0</XCoord>
+    		<Speed>-3</Speed>
+    		<Image>Koopa moving.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>100</XCoord>
+    		<Speed>-3</Speed>
+    		<Image>Koopa moving.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>200</XCoord>
+    		<Speed>-3</Speed>
+    		<Image>Koopa moving.png</Image>
+    	</Sprite>
     </Lane>
     <!--  Lane 10 (Road) -->
     <Lane>
     	<IsBad>true</IsBad>
+    	    	    	 <Sprite>
+    		<XCoord>0</XCoord>
+    		<Speed>4</Speed>
+    		<Image>Shy guy 2.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>100</XCoord>
+    		<Speed>4</Speed>
+    		<Image>Shy guy 2.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>200</XCoord>
+    		<Speed>4</Speed>
+    		<Image>Shy guy 2.png</Image>
+    	</Sprite>
     </Lane>
     <!--  Lane 11 (Road) -->
     <Lane>
     	<IsBad>true</IsBad>
+    	    	    	 <Sprite>
+    		<XCoord>0</XCoord>
+    		<Speed>-3</Speed>
+    		<Image>Goomba 2.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>100</XCoord>
+    		<Speed>-3</Speed>
+    		<Image>Goomba 2.png</Image>
+    	</Sprite>
+    	<Sprite>
+    		<XCoord>200</XCoord>
+    		<Speed>-3</Speed>
+    		<Image>Goomba 2.png</Image>
+    	</Sprite>
     </Lane>
     <!--  Lane 12 (Bricks) -->
     <Lane>
