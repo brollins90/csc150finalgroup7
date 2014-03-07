@@ -1,6 +1,8 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
+import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -93,12 +95,17 @@ public class Map {
 				NodeList frogNodes = curNode.getElementsByTagName("Frog");
 				Element frogElement = (Element) frogNodes.item(0);
 				int frogColumn = Integer.parseInt(frogElement.getElementsByTagName("Column").item(0).getFirstChild().getTextContent());
+				ArrayList<Image> frogImages = new ArrayList<Image>();
 				String frogImage = frogElement.getElementsByTagName("ImageUp").item(0).getFirstChild().getTextContent();
+				frogImages.add(Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + frogImage));
 				String frogImageLeft = frogElement.getElementsByTagName("ImageLeft").item(0).getFirstChild().getTextContent();
+				frogImages.add(Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + frogImageLeft));
 				String frogImageRight = frogElement.getElementsByTagName("ImageRight").item(0).getFirstChild().getTextContent();
+				frogImages.add(Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + frogImageRight));
 				String frogImageDown = frogElement.getElementsByTagName("ImageDown").item(0).getFirstChild().getTextContent();
-				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 1) * this.mapLaneHeight), 0, frogImage);
-				this.frog.addAltImages(frogImageLeft, frogImageRight, frogImageDown);
+				frogImages.add(Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + frogImageDown));
+				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 1) * this.mapLaneHeight), 0, frogImages);
+				//this.frog.addAltImages(frogImageLeft, frogImageRight, frogImageDown);
 				
 				for (int laneIndex = 0; laneIndex < laneNodes.getLength(); laneIndex++) {
 					Element curLane = (Element) laneNodes.item(laneIndex);
@@ -112,13 +119,27 @@ public class Map {
 					for (int spriteIndex = 0; spriteIndex < spriteList.getLength(); spriteIndex++) {
 						Element curSprite = (Element) spriteList.item(spriteIndex);
 
+						String spriteType = curSprite.getElementsByTagName("Type").item(0).getFirstChild().getTextContent();
 						int spriteXCoord = Integer.parseInt(curSprite.getElementsByTagName("XCoord").item(0).getFirstChild().getTextContent());
 						int spriteYCoord = laneIndex * this.mapLaneHeight;
 						//boolean spriteMovesLeft = Boolean.parseBoolean(curSprite.getElementsByTagName("MovesLeft").item(0).getFirstChild().getTextContent());
 						int spriteSpeed = Integer.parseInt(curSprite.getElementsByTagName("Speed").item(0).getFirstChild().getTextContent());
-						String spriteImage = curSprite.getElementsByTagName("Image").item(0).getFirstChild().getTextContent();
+						NodeList spriteImageNodes = curSprite.getElementsByTagName("Image");
+						ArrayList<Image> spriteImages = new ArrayList<Image>();
+						for (int imageIndex = 0; imageIndex < spriteImageNodes.getLength(); imageIndex++) {
+							Image temp = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + spriteImageNodes.item(imageIndex).getFirstChild().getTextContent());
+							spriteImages.add(temp);
+						}
+						int spriteChangeTime = Integer.parseInt(curSprite.getElementsByTagName("ChangeTime").item(0).getFirstChild().getTextContent());
 						
-						this.lanes[laneIndex].addSprite(new Turtle(new Point(spriteXCoord, spriteYCoord), spriteSpeed, spriteImage, "Wiggler mad.png"));
+						//String spriteImage = curSprite.getElementsByTagName("Image").item(0).getFirstChild().getTextContent();
+						if (spriteType.equals("Turtle")) {
+							this.lanes[laneIndex].addSprite(new Turtle(new Point(spriteXCoord, spriteYCoord), spriteSpeed, spriteImages, spriteChangeTime));
+						} else if (spriteType.equals("Log")) {
+							//this.lanes[laneIndex].addSprite(new Log(new Point(spriteXCoord, spriteYCoord), spriteSpeed, spriteImages, spriteChangeTime));
+						} else if (spriteType.equals("Car")) {
+							this.lanes[laneIndex].addSprite(new Enemy(new Point(spriteXCoord, spriteYCoord), spriteSpeed, spriteImages, spriteChangeTime));
+						}
 					} // end Sprites					
 				} // end Lanes
 			} // end Map

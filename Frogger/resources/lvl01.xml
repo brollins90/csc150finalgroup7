@@ -17,50 +17,108 @@
     	<ImageDown>moving down.png</ImageDown>
     </Frog>
     
-    <!-- Lane 0 (Pipes) -->
+    <!-- Lane 0 - Lilly Pads -->
     <Lane>
     	<IsBad>true</IsBad>
     </Lane>
-    <!-- Lane 1 (Wiggler left) -->
+    <!-- Lane 1 - Log Right -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 2 - Turtle left -->
     <Lane>
     	<IsBad>true</IsBad>
     	<Sprite>
+    		<Type>Turtle</Type>
     		<XCoord>0</XCoord>
     		<Speed>-4</Speed>
     		<Image>Wiggler Floating.png</Image>
-    	</Sprite>
+    		<Image>Wiggler surfacing.png</Image>
+    		<Image>Wiggler surfacing.png</Image>
+    		<Image>Wiggler surfacing.png</Image>
+    		<Image>1</Image>
+    		<Image>1</Image>
+    		<Image>1</Image>
+    		<Image>Wiggler mad sinking.png</Image>
+    		<Image>Wiggler mad sinking.png</Image>
+    		<Image>Wiggler mad sinking.png</Image>
+    		<Image>Wiggler mad sinking.png</Image>
+    		<Image>Wiggler mad sinking.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<ChangeTime>35</ChangeTime>
+    	</Sprite><!-- 
     	<Sprite>
+    		<Type>Turtle</Type>
     		<XCoord>100</XCoord>
     		<Speed>-4</Speed>
     		<Image>Wiggler Floating.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<ChangeTime>25</ChangeTime>
     	</Sprite>
     	<Sprite>
+    		<Type>Turtle</Type>
     		<XCoord>200</XCoord>
     		<Speed>-4</Speed>
     		<Image>Wiggler Floating.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<Image>Wiggler mad.png</Image>
+    		<ChangeTime>25</ChangeTime>
+    	</Sprite> -->
+    </Lane>
+    <!--  Lane 3 - Log Right -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 4 - Log Right -->
+    <Lane>
+    	<IsBad>true</IsBad>
+    </Lane>
+    <!--  Lane 5 - Turtle left -->
+    <Lane>
+    	<IsBad>true</IsBad><!-- 
+    	<Sprite>
+    		<Type>Car</Type>
+    		<XCoord>30</XCoord>
+    		<Speed>-6</Speed>
+    		<Image>Wiggler Floating.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
+    	<Sprite>
+    		<Type>Car</Type>
+    		<XCoord>110</XCoord>
+    		<Speed>-6</Speed>
+    		<Image>Wiggler Floating.png</Image>
+    		<ChangeTime>0</ChangeTime>
+    	</Sprite>
+    	<Sprite>
+    		<Type>Car</Type>
+    		<XCoord>190</XCoord>
+    		<Speed>-6</Speed>
+    		<Image>Wiggler Floating.png</Image>
+    		<ChangeTime>0</ChangeTime>
+    	</Sprite> -->
     </Lane>
-    <!--  Lane 2 (Wiggler left) -->
+    <!--  Lane 6 - Grass -->
     <Lane>
     	<IsBad>true</IsBad>
     </Lane>
-    <!--  Lane 3 (Wiggler left) -->
+    <!--  Lane 7 - Car Left -->
     <Lane>
     	<IsBad>true</IsBad>
     </Lane>
-    <!--  Lane 4 (Wiggler left) -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    </Lane>
-    <!--  Lane 5 (Wiggler left) -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    </Lane>
-    <!--  Lane 6 (Bricks) -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    </Lane>
-    <!--  Lane 7 (Road) -->
+    <!--  Lane 8 - Car Right -->
     <Lane>
     	<IsBad>true</IsBad>
     	    	 <Sprite>
@@ -79,7 +137,7 @@
     		<Image>bob-omb pos1.png</Image>
     	</Sprite>
     </Lane>
-    <!--  Lane 8 (Road) -->
+    <!--  Lane 9 - Car Left -->
     <Lane>
     	<IsBad>true</IsBad>
     	    	 <Sprite>
@@ -98,7 +156,7 @@
     		<Image>Bullet Bill.png</Image>
     	</Sprite>
     </Lane>
-    <!--  Lane 9 (Road) -->
+    <!--  Lane 10 - Car Right -->
     <Lane>
     	<IsBad>true</IsBad>
     	    	    	 <Sprite>
@@ -117,7 +175,7 @@
     		<Image>Koopa moving.png</Image>
     	</Sprite>
     </Lane>
-    <!--  Lane 10 (Road) -->
+    <!--  Lane 11 - Car Left -->
     <Lane>
     	<IsBad>true</IsBad>
     	    	    	 <Sprite>
@@ -136,7 +194,7 @@
     		<Image>Shy guy 2.png</Image>
     	</Sprite>
     </Lane>
-    <!--  Lane 11 (Road) -->
+    <!--  Lane 12 - Grass -->
     <Lane>
     	<IsBad>true</IsBad>
     	    	    	 <Sprite>
@@ -154,10 +212,6 @@
     		<Speed>-3</Speed>
     		<Image>Goomba 2.png</Image>
     	</Sprite>
-    </Lane>
-    <!--  Lane 12 (Bricks) -->
-    <Lane>
-    	<IsBad>true</IsBad>
     </Lane>
   </Map>
 </SuperFrogger>

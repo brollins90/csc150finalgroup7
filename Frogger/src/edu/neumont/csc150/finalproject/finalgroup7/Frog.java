@@ -3,6 +3,7 @@ package edu.neumont.csc150.finalproject.finalgroup7;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 public class Frog extends Sprite {
 	private Image[] imgArray;
@@ -11,8 +12,8 @@ public class Frog extends Sprite {
 	private Image imageRight;
 	private Image imageDown;
 
-	public Frog(Point startPosition, int spriteSpeed, String imagePath) {
-		super(startPosition, spriteSpeed, imagePath);		
+	public Frog(Point startPosition, int spriteSpeed, ArrayList<Image> images) {
+		super(startPosition, spriteSpeed, images, 0);		
 		imgArray = new Image[4];
 		imgArray[0] = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + "moving left.png");
 		imgArray[1] = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + "moving up.png");
@@ -21,7 +22,7 @@ public class Frog extends Sprite {
 	}
 	
 	public void setImage(int imageNum){
-		this.image = imgArray[imageNum];
+		this.image = super.images.get(imageNum);
 	}
 	
 	public void addAltImages(String left, String right, String down) {

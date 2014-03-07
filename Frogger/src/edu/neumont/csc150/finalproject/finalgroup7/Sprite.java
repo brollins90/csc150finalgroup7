@@ -3,31 +3,39 @@ package edu.neumont.csc150.finalproject.finalgroup7;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 public abstract class Sprite {
 
 	protected Image image;
+	protected ArrayList<Image> images;
 	private boolean movingLeft;
 	//private boolean movingLeft;
 	protected Point position;
+	protected int changeTimeDefault;
+	protected int changeTime;
 	protected int speed;
 	private int width;
 	
-	public Sprite(Point startPosition, int spriteSpeed, String imagePath) {
+	public Sprite(Point startPosition, int spriteSpeed, ArrayList<Image> images, int changeTime) {
 
-		this.image = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + imagePath);
+		//this.image = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + imagePath);
+		this.images = images;
+		setImage(0);
 		//this.movingLeft = movesToTheLeft;
 		this.position = startPosition;
 		this.speed = spriteSpeed;
 		this.width = image.getWidth(null);		
+		this.changeTimeDefault = changeTime;
+		this.changeTime = changeTime;
 	}
 	
 	public Image getImage() {
 		return this.image;
 	}
 	
-	public void setImage(Image newImage){
-		this.image = newImage;
+	public void setImage(int index){
+		this.image = images.get(index);
 	}
 	
 //	public boolean getMovingLeft() {
