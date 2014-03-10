@@ -21,6 +21,7 @@ public class Turtle extends Enemy {
 		super.move();
 		System.out.println(super.changeTime);
 		int numberOfImages = super.images.size();
+		// rotate the images
 		if (numberOfImages != 1) {
 			for (int i = 0; i < numberOfImages; i++) {
 				if (super.changeTime == super.changeTimeDefault - i) {
@@ -28,6 +29,7 @@ public class Turtle extends Enemy {
 				}
 			}
 
+			// Increase, or reset the timer
 			if(super.changeTime < super.changeTimeDefault){
 				super.changeTime++;
 			} else if(super.changeTime == super.changeTimeDefault){
@@ -36,6 +38,7 @@ public class Turtle extends Enemy {
 				//super.image = this.badImage;
 				//super.isEvil = true;
 			}
+			
 		} else {
 			// dont change the image
 		}

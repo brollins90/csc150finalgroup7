@@ -100,6 +100,15 @@ public class Game {
 		updatePanel();
 	}
 	
+	private void checkCollision() {
+		for (Sprite s : sprites) {
+			
+			if (this.frog.checkCollision(s)) {
+				System.out.println("COLLIDED: " + s.toString());
+			}
+		}
+	}
+	
 	private void moveSprites() {
 		for (Sprite s : sprites) {
 			s.move();
@@ -113,13 +122,13 @@ public class Game {
 		switch (keyCode) {
 		case 37:
 			System.out.println("Left");
-			frog.setImage(0);
+			frog.setImage(1);
 			moveFrog(new Point(-1, 0));
 			break;
 		case 38:
 			System.out.println("Up");
 			moveFrog(new Point(0, -1));
-			frog.setImage(1);
+			frog.setImage(0);
 			break;
 		case 39:
 			System.out.println("Right");
@@ -162,7 +171,10 @@ public class Game {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			// Move
 			moveSprites();
+			// Check Collision
+			checkCollision();
 		}
 		
 	}

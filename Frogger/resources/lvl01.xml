@@ -121,97 +121,106 @@
     <!--  Lane 8 - Car Right -->
     <Lane>
     	<IsBad>true</IsBad>
-    	    	 <Sprite>
+    	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>0</XCoord>
     		<Speed>-3</Speed>
     		<Image>bob-omb pos1.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>100</XCoord>
     		<Speed>-3</Speed>
     		<Image>bob-omb pos1.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>200</XCoord>
     		<Speed>-3</Speed>
     		<Image>bob-omb pos1.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     </Lane>
     <!--  Lane 9 - Car Left -->
     <Lane>
     	<IsBad>true</IsBad>
-    	    	 <Sprite>
+    	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>0</XCoord>
     		<Speed>4</Speed>
     		<Image>Bullet Bill.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>100</XCoord>
     		<Speed>4</Speed>
     		<Image>Bullet Bill.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>200</XCoord>
     		<Speed>4</Speed>
     		<Image>Bullet Bill.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     </Lane>
     <!--  Lane 10 - Car Right -->
     <Lane>
     	<IsBad>true</IsBad>
-    	    	    	 <Sprite>
+    	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>0</XCoord>
     		<Speed>-3</Speed>
     		<Image>Koopa moving.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>100</XCoord>
     		<Speed>-3</Speed>
     		<Image>Koopa moving.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>200</XCoord>
     		<Speed>-3</Speed>
     		<Image>Koopa moving.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     </Lane>
     <!--  Lane 11 - Car Left -->
     <Lane>
     	<IsBad>true</IsBad>
-    	    	    	 <Sprite>
+    	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>0</XCoord>
     		<Speed>4</Speed>
     		<Image>Shy guy 2.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>100</XCoord>
     		<Speed>4</Speed>
     		<Image>Shy guy 2.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     	<Sprite>
+    		<Type>Car</Type>
     		<XCoord>200</XCoord>
     		<Speed>4</Speed>
     		<Image>Shy guy 2.png</Image>
+    		<ChangeTime>0</ChangeTime>
     	</Sprite>
     </Lane>
     <!--  Lane 12 - Grass -->
     <Lane>
-    	<IsBad>true</IsBad>
-    	    	    	 <Sprite>
-    		<XCoord>0</XCoord>
-    		<Speed>-3</Speed>
-    		<Image>Goomba 2.png</Image>
-    	</Sprite>
-    	<Sprite>
-    		<XCoord>100</XCoord>
-    		<Speed>-3</Speed>
-    		<Image>Goomba 2.png</Image>
-    	</Sprite>
-    	<Sprite>
-    		<XCoord>200</XCoord>
-    		<Speed>-3</Speed>
-    		<Image>Goomba 2.png</Image>
-    	</Sprite>
+    	<IsBad>false</IsBad>
     </Lane>
   </Map>
 </SuperFrogger>
