@@ -109,10 +109,15 @@ public class Game {
 	
 	private void checkCollision() {
 		for (Sprite s : sprites) {
-			
+		 if(lives!=0){
 			if (this.frog.checkCollision(s)) {
 				System.out.println("COLLIDED: " + s.toString());
+				frog.reset();
+				lives--;
 			}
+		 } else{
+			 System.exit(0);
+		 }
 		}
 	}
 	
