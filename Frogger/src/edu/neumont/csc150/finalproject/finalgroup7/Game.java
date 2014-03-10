@@ -31,12 +31,12 @@ public class Game {
 		this.panel.addGameListener(new GameKeyListener());
 		this.panel.addSprites(this.sprites);
 		this.panel.addFrog(this.frog);
-		MediaTracker mt = new MediaTracker(this.panel);
-		try {
-			mt.waitForAll();
-		} catch (Exception e) {
-			System.out.println("wait");
-		}
+//		MediaTracker mt = new MediaTracker(this.panel);
+//		try {
+//			mt.waitForAll();
+//		} catch (Exception e) {
+//			System.out.println("wait");
+//		}
 		
 		TimerListener tListener = new TimerListener();
 		Timer gameTimer = new Timer( 100, tListener);
@@ -129,22 +129,22 @@ public class Game {
 		switch (keyCode) {
 		case 37:
 			System.out.println("Left");
-			frog.setImage(1);
+			frog.setImage(Frog.FROG_LEFT);
 			moveFrog(new Point(-1, 0));
 			break;
 		case 38:
 			System.out.println("Up");
+			frog.setImage(Frog.FROG_UP);
 			moveFrog(new Point(0, -1));
-			frog.setImage(0);
 			break;
 		case 39:
 			System.out.println("Right");
-			frog.setImage(2);
+			frog.setImage(Frog.FROG_RIGHT);
 			moveFrog(new Point(1, 0));
 			break;
 		case 40:
 			System.out.println("Down");
-			frog.setImage(3);
+			frog.setImage(Frog.FROG_DOWN);
 			moveFrog(new Point(0, 1));
 			break;
 		default:

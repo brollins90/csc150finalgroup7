@@ -122,7 +122,7 @@ public class Map {
 				BufferedImage bfFrogImageDown = ImageIO.read(new File(frogImageDownPath));
 				frogImages.add(bfFrogImageDown);
 				
-				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 1) * this.mapLaneHeight), 0, frogImages);
+				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 1) * this.mapLaneHeight), frogImages);
 				//this.frog.addAltImages(frogImageLeft, frogImageRight, frogImageDown);
 				
 				for (int laneIndex = 0; laneIndex < laneNodes.getLength(); laneIndex++) {
