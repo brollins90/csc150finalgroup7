@@ -1,6 +1,7 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
 import java.awt.Image;
+import java.awt.MediaTracker;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -30,6 +31,12 @@ public class Game {
 		this.panel.addGameListener(new GameKeyListener());
 		this.panel.addSprites(this.sprites);
 		this.panel.addFrog(this.frog);
+		MediaTracker mt = new MediaTracker(this.panel);
+		try {
+			mt.waitForAll();
+		} catch (Exception e) {
+			System.out.println("wait");
+		}
 		
 		TimerListener tListener = new TimerListener();
 		Timer gameTimer = new Timer( 100, tListener);

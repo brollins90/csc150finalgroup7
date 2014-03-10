@@ -22,7 +22,7 @@ public abstract class Sprite {
 		this.setImage(0);
 		this.position = startPosition;
 		this.speed = spriteSpeed;
-		this.width = 7; // image.getWidth(null);
+		this.width = this.images.get(0).getWidth(null);
 //		this.rectangle = new Rectangle(position.x, position.y, this.width, 40); // Set a generic 1 for the height
 		this.changeTimeDefault = changeTime;
 		this.changeTime = changeTime;

@@ -3,9 +3,11 @@ package edu.neumont.csc150.finalproject.finalgroup7;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -15,7 +17,7 @@ import org.w3c.dom.NodeList;
 
 public class Map {
 
-	private String mapBackgroundImage;
+	private Image mapBackgroundImage;
 	private int mapColumnWidth;
 	private int mapLaneHeight;
 	private String mapName;
@@ -25,7 +27,7 @@ public class Map {
 	private Frog frog;
 	private Lane[] lanes;
 	
-	public String getBackgroundImage() {
+	public Image getBackgroundImage() {
 		return this.mapBackgroundImage;
 	}
 	
@@ -62,7 +64,8 @@ public class Map {
 	public Map(String xmlName) {
 		
 		try {
-			File xmlFile = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath() + xmlName);
+			String resourcePath = ClassLoader.getSystemClassLoader().getResource(".").getPath();
+			File xmlFile = new File(resourcePath + xmlName);
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(xmlFile);
@@ -79,7 +82,9 @@ public class Map {
 				System.out.println("Current Node: " + curNode.getNodeName());
 
 				this.mapName = curNode.getElementsByTagName("Name").item(0).getFirstChild().getTextContent();
-				this.mapBackgroundImage = curNode.getElementsByTagName("BackgroundImage").item(0).getFirstChild().getTextContent();
+				String backgroundImage = curNode.getElementsByTagName("BackgroundImage").item(0).getFirstChild().getTextContent();
+				String backgroundImagePath = resourcePath + backgroundImage;
+				this.mapBackgroundImage = ImageIO.read(new File(backgroundImagePath));
 				this.mapColumnWidth = Integer.parseInt(curNode.getElementsByTagName("ColumnWidth").item(0).getFirstChild().getTextContent());
 				this.mapLaneHeight = Integer.parseInt(curNode.getElementsByTagName("LaneHeight").item(0).getFirstChild().getTextContent());
 				this.mapNumberOfColumns = Integer.parseInt(curNode.getElementsByTagName("NumberOfColumns").item(0).getFirstChild().getTextContent());
@@ -96,14 +101,27 @@ public class Map {
 				Element frogElement = (Element) frogNodes.item(0);
 				int frogColumn = Integer.parseInt(frogElement.getElementsByTagName("Column").item(0).getFirstChild().getTextContent());
 				ArrayList<Image> frogImages = new ArrayList<Image>();
+				
 				String frogImage = frogElement.getElementsByTagName("ImageUp").item(0).getFirstChild().getTextContent();
-				frogImages.add(Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + frogImage));
+				String frogImagePath = resourcePath + frogImage;
+				BufferedImage bfFrogImageUp = ImageIO.read(new File(frogImagePath));
+				frogImages.add(bfFrogImageUp);
+				
 				String frogImageLeft = frogElement.getElementsByTagName("ImageLeft").item(0).getFirstChild().getTextContent();
-				frogImages.add(Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + frogImageLeft));
+				String frogImageLeftPath = resourcePath + frogImageLeft;
+				BufferedImage bfFrogImageLeft = ImageIO.read(new File(frogImageLeftPath));
+				frogImages.add(bfFrogImageLeft);
+				
 				String frogImageRight = frogElement.getElementsByTagName("ImageRight").item(0).getFirstChild().getTextContent();
-				frogImages.add(Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + frogImageRight));
+				String frogImageRightPath = resourcePath + frogImageRight;
+				BufferedImage bfFrogImageRight = ImageIO.read(new File(frogImageRightPath));
+				frogImages.add(bfFrogImageRight);
+				
 				String frogImageDown = frogElement.getElementsByTagName("ImageDown").item(0).getFirstChild().getTextContent();
-				frogImages.add(Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + frogImageDown));
+				String frogImageDownPath = resourcePath + frogImageDown;
+				BufferedImage bfFrogImageDown = ImageIO.read(new File(frogImageDownPath));
+				frogImages.add(bfFrogImageDown);
+				
 				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 1) * this.mapLaneHeight), 0, frogImages);
 				//this.frog.addAltImages(frogImageLeft, frogImageRight, frogImageDown);
 				
@@ -127,8 +145,10 @@ public class Map {
 						NodeList spriteImageNodes = curSprite.getElementsByTagName("Image");
 						ArrayList<Image> spriteImages = new ArrayList<Image>();
 						for (int imageIndex = 0; imageIndex < spriteImageNodes.getLength(); imageIndex++) {
-							Image temp = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + spriteImageNodes.item(imageIndex).getFirstChild().getTextContent());
-							spriteImages.add(temp);
+							String imageName = spriteImageNodes.item(imageIndex).getFirstChild().getTextContent();
+							String imagePath = resourcePath + imageName;
+							BufferedImage bfImage = ImageIO.read(new File(imagePath));
+							spriteImages.add(bfImage);
 						}
 						int spriteChangeTime = Integer.parseInt(curSprite.getElementsByTagName("ChangeTime").item(0).getFirstChild().getTextContent());
 						

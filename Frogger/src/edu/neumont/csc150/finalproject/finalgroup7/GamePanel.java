@@ -20,7 +20,7 @@ public class GamePanel extends JPanel{
 	ArrayList<Sprite> sprites;
 	Frog frog;
 	
-	public GamePanel(String backgroundImage) {
+	public GamePanel(Image backgroundImage) {
 		
 		this.sprites = new ArrayList<Sprite>();
 		//this.frog = new Enemy();
@@ -30,8 +30,8 @@ public class GamePanel extends JPanel{
 		frame.setLocationRelativeTo(null);
 		
 		// Set the background 
-		String path = ClassLoader.getSystemClassLoader().getResource(".").getPath() + backgroundImage;
-		this.background = new ImageIcon(path).getImage();
+//		String path = ClassLoader.getSystemClassLoader().getResource(".").getPath() + backgroundImage;
+		this.background = backgroundImage;
 		
 		this.setFocusable(true);
 		this.addKeyListener(new PanelKeyListener());
