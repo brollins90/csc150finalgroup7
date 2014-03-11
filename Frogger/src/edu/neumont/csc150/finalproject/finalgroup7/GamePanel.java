@@ -13,25 +13,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-public class GamePanel extends JPanel{
+public class GamePanel extends JPanel {
 	Image background;
 	private KeyListener gameListener;
 	
 	ArrayList<Sprite> sprites;
 	Frog frog;
 	
-	public GamePanel(Image backgroundImage) {
-		
-		this.sprites = new ArrayList<Sprite>();
-		//this.frog = new Enemy();
+	public GamePanel(Image backgroundImage, KeyListener gameListener, ArrayList<Sprite> newSprites, Frog newFrog) {
+
+		this.background = backgroundImage;
+		this.gameListener = gameListener;
+		this.sprites = newSprites;
+		this.frog = newFrog;
 		
 		JFrame frame = new JFrame("Frogger");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
-		
-		// Set the background 
-//		String path = ClassLoader.getSystemClassLoader().getResource(".").getPath() + backgroundImage;
-		this.background = backgroundImage;
 		
 		this.setFocusable(true);
 		this.addKeyListener(new PanelKeyListener());
@@ -62,17 +60,17 @@ public class GamePanel extends JPanel{
 		g.drawImage(frog.getImage(), frog.getPosition().x, frog.getPosition().y, null);
 	}
 	
-	public void addGameListener(KeyListener gameListener) {
-		this.gameListener = gameListener;
-	}
-	
-	public void addSprites(ArrayList<Sprite> newSprites) {
-		this.sprites = newSprites;
-	}
-	
-	public void addFrog(Frog newFrog) {
-		this.frog = newFrog;
-	}
+//	public void addGameListener(KeyListener gameListener) {
+//		this.gameListener = gameListener;
+//	}
+//	
+//	public void addSprites(ArrayList<Sprite> newSprites) {
+//		this.sprites = newSprites;
+//	}
+//	
+//	public void addFrog(Frog newFrog) {
+//		this.frog = newFrog;
+//	}
 	
 	private class PanelKeyListener implements KeyListener {
 

@@ -6,20 +6,15 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 
 public class Turtle extends Enemy {
-//	protected Image goodImage;
-//	protected Image badImage;
 	
 	public Turtle(Point startPosition, int spriteSpeed, ArrayList<Image> images, int changeTime) {
 		super(startPosition, spriteSpeed, images, changeTime);
-//		this.goodImage = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + imagePath);
-//		this.badImage = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(".").getPath() + imagePathBad);
-		//this.sinkTimer = 0;
 	}
 	
 	@Override
 	public void move() {
 		super.move();
-		System.out.println(super.changeTime);
+//		System.out.println(super.changeTime);
 		int numberOfImages = super.images.size();
 		// rotate the images
 		if (numberOfImages != 1) {
