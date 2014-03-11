@@ -55,28 +55,32 @@ public class Game {
 	private void updatePanel() {
 		this.panel.repaint();
 	}
+	
+	private void killFrog() {
+		lives--;
+		if (lives > 0) {
+			frog.reset();
+		} else {
+			System.exit(0);
+		}
+	}
 
 	private void checkCollision() {
 		if (this.frog.getPosition().x < 0 || this.frog.getPosition().x > 350) {
-			frog.reset();
-			lives--;
+			killFrog();
 		}
 
 		for (Sprite s : sprites) {
-			if (lives > 0) {
-				if (this.frog.checkCollision(s)) {
-					System.out.println("COLLIDED: " + s.toString());
-					if (s instanceof Turtle && ((Turtle) s).isEvil) {
-						frog.setSpeed(((Turtle) s).speed);
-						frog.move();
-					} else {
-						frog.reset();
-						lives--;
-					}
+			if (this.frog.checkCollision(s)) {
+				System.out.println("COLLIDED: " + s.toString());
+				if (s instanceof Turtle && ((Turtle) s).isEvil) {
+					frog.setSpeed(((Turtle) s).speed);
+					frog.move();
+				} else {
+					killFrog();
 				}
-			} else {
-				System.exit(0);
 			}
+			
 		}
 	}
 

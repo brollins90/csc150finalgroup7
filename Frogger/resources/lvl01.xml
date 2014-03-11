@@ -15,6 +15,7 @@
     	<ImageLeft>moving left.png</ImageLeft>
     	<ImageRight>moving right.png</ImageRight>
     	<ImageDown>moving down.png</ImageDown>
+    	<ImageDead></ImageDead>
     </Frog>
     
     <!-- Lane 0 - Lilly Pads -->
@@ -123,29 +124,37 @@
     		<Type>Car</Type>
     		<XCoord>100</XCoord>
     		<Speed>-5</Speed>
+    		<Image>Bom-omb pos3.png</Image>
     		<Image>bob-omb pos1.png</Image>
-    		<ChangeTime>0</ChangeTime>
+    		<Image>Bomb-omb pos2.png</Image>
+    		<ChangeTime>3</ChangeTime>
     	</Sprite>
     	<Sprite>
     		<Type>Car</Type>
     		<XCoord>140</XCoord>
     		<Speed>-5</Speed>
+    		<Image>Bom-omb pos3.png</Image>
     		<Image>bob-omb pos1.png</Image>
-    		<ChangeTime>0</ChangeTime>
+    		<Image>Bomb-omb pos2.png</Image>
+    		<ChangeTime>3</ChangeTime>
     	</Sprite>
     	<Sprite>
     		<Type>Car</Type>
     		<XCoord>310</XCoord>
     		<Speed>-5</Speed>
+    		<Image>Bom-omb pos3.png</Image>
     		<Image>bob-omb pos1.png</Image>
-    		<ChangeTime>0</ChangeTime>
+    		<Image>Bomb-omb pos2.png</Image>
+    		<ChangeTime>3</ChangeTime>
     	</Sprite>
     	    	<Sprite>
     		<Type>Car</Type>
     		<XCoord>270</XCoord>
     		<Speed>-5</Speed>
+    		<Image>Bom-omb pos3.png</Image>
     		<Image>bob-omb pos1.png</Image>
-    		<ChangeTime>0</ChangeTime>
+    		<Image>Bomb-omb pos2.png</Image>
+    		<ChangeTime>3</ChangeTime>
     	</Sprite>
     </Lane>
     <!--  Lane 8 - Car Right -->
@@ -188,21 +197,24 @@
     		<XCoord>0</XCoord>
     		<Speed>-2</Speed>
     		<Image>Koopa moving.png</Image>
-    		<ChangeTime>0</ChangeTime>
+    		<Image>Koopa Standing.png</Image>
+    		<ChangeTime>2</ChangeTime>
     	</Sprite>
     	<Sprite>
     		<Type>Car</Type>
     		<XCoord>170</XCoord>
     		<Speed>-2</Speed>
     		<Image>Koopa moving.png</Image>
-    		<ChangeTime>0</ChangeTime>
+    		<Image>Koopa Standing.png</Image>
+    		<ChangeTime>2</ChangeTime>
     	</Sprite>
     	<Sprite>
     		<Type>Car</Type>
     		<XCoord>300</XCoord>
     		<Speed>-2</Speed>
     		<Image>Koopa moving.png</Image>
-    		<ChangeTime>0</ChangeTime>
+    		<Image>Koopa Standing.png</Image>
+    		<ChangeTime>2</ChangeTime>
     	</Sprite>
     </Lane>
     <!--  Lane 10 - Car Right -->

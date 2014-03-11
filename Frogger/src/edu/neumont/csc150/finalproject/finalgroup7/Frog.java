@@ -63,7 +63,7 @@ public class Frog extends Sprite {
 
 		// Move horizontal
 		if (movePoint.x != 0) {
-			int newColumn = this.getPosition().x + (movePoint.x * columnWidth);
+			int newColumn = ((this.getPosition().x + (movePoint.x * columnWidth)) / columnWidth) * columnWidth;
 			if (newColumn >= 0 && newColumn < numCols * columnWidth) {
 				this.setPosition(new Point(newColumn, this.getPosition().y));
 			}
@@ -71,8 +71,11 @@ public class Frog extends Sprite {
 		// Move vertical
 		if (movePoint.y != 0) {
 			int newRow = this.getPosition().y + (movePoint.y * laneHeight);
-			if (newRow >= 0 && newRow < numRows * laneHeight) {
+			if (newRow >= 1 && newRow < numRows * laneHeight) {
 				this.setPosition(new Point(this.getPosition().x, newRow));
+			} else if (newRow == 0) {
+				int newColumn = ((this.getPosition().x) / columnWidth) * columnWidth;
+				this.setPosition(new Point(newColumn, newRow));
 			}
 		}
 		

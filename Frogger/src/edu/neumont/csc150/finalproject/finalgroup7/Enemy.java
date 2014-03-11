@@ -41,7 +41,26 @@ public class Enemy extends Sprite {
 				this.position.x = 0;
 			}
 		}
-//		this.rectangle = new Rectangle(this.position.x, this.position.y, this.width, 40);
+		
+		int numberOfImages = super.images.size();
+		// rotate the images
+		if (numberOfImages != 1) {
+			for (int i = 0; i < numberOfImages; i++) {
+				if (this.changeTime == this.changeTimeDefault - i) {
+					super.setImage(i);
+				}
+			}
+
+			// Increase, or reset the timer
+			if(this.changeTime < this.changeTimeDefault){
+				this.changeTime++;
+			} else if(this.changeTime == this.changeTimeDefault){
+				this.changeTime = 0;
+			}
+			
+		} else {
+			// dont change the image
+		}
 	}
 	
 }
