@@ -7,21 +7,21 @@ import java.util.ArrayList;
 
 public abstract class Sprite {
 
-	protected ArrayList<Image> images;
-	protected int imageIndex;
+	protected ArrayList<String> imageKeys;
 	protected Point position;
+	protected int imageIndex;
 	protected int width;
 
-	public Sprite(Point startPosition, ArrayList<Image> images) {
+	public Sprite(Point startPosition, ArrayList<String> imageKeys, int width) {
 
-		this.images = images;
+		this.imageKeys = imageKeys;
 		this.setImage(0);
 		this.position = startPosition;
-		this.width = this.images.get(0).getWidth(null);
+		this.width = width; //this.images.get(0).getWidth(null);
 	}
 
-	public Image getImage() {
-		return this.images.get(this.imageIndex);
+	public String getImageKey() {
+		return this.imageKeys.get(this.imageIndex);
 	}
 
 	public void setImage(int index) {

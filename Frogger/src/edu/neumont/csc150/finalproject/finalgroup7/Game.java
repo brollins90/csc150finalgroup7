@@ -1,20 +1,19 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
 import java.awt.Image;
-import java.awt.MediaTracker;
-import java.awt.Point;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.Timer;
 
 public class Game {
 
-	private Map map;
+	private Config map;
 	private GamePanel panel;
 	private Frog frog;
 	private ArrayList<Sprite> sprites;
@@ -22,12 +21,12 @@ public class Game {
 	private int a = 0;
 	private int lives = 3;
 
-	public Game(Map map) {
+	public Game(Config map) {
 		// Load the map
 		loadMap(map);
 
 		// Create the GamePanel
-		this.panel = new GamePanel(map.getBackgroundImage(), new GameKeyListener(), this.sprites, this.frog);
+		this.panel = new GamePanel(map.getBackgroundImageKey(), new GameKeyListener(), map.getImageMap(), this.sprites, this.frog);
 
 		TimerListener tListener = new TimerListener();
 		Timer gameTimer = new Timer(this.timerNumber, tListener);
@@ -35,7 +34,7 @@ public class Game {
 		gameTimer.start();
 	}
 
-	private void loadMap(Map map) {
+	private void loadMap(Config map) {
 		this.map = map;
 		this.sprites = new ArrayList<Sprite>();
 

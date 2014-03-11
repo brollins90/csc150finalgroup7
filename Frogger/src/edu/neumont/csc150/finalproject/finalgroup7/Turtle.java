@@ -7,13 +7,15 @@ import java.util.ArrayList;
 
 public class Turtle extends Enemy {
 	
-	public Turtle(Point startPosition, int spriteSpeed, ArrayList<Image> images, int changeTime) {
-		super(startPosition, spriteSpeed, images, changeTime);
+	public Turtle(Point startPosition, ArrayList<String> imageKeys, int width, int spriteSpeed, int changeTime) {
+		super(startPosition, imageKeys, width, spriteSpeed, changeTime);
 	}
 	
 	@Override
 	public void move() {
 		super.move();
+		// if the image is set to transparent, then make the rutle evil.
+		
 		
 	}
 	

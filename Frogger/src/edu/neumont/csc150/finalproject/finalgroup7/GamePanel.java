@@ -1,28 +1,29 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Map;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
 public class GamePanel extends JPanel {
-	Image background;
+	private String backgroundImageKey;
+	private Map<String, Image> imageMap;
 	private KeyListener gameListener;
 	
 	ArrayList<Sprite> sprites;
 	Frog frog;
 	
-	public GamePanel(Image backgroundImage, KeyListener gameListener, ArrayList<Sprite> newSprites, Frog newFrog) {
+	public GamePanel(String backgroundImageKey, KeyListener gameListener, Map<String, Image> imageMap, ArrayList<Sprite> newSprites, Frog newFrog) {
 
-		this.background = backgroundImage;
+		this.backgroundImageKey = backgroundImageKey;
+		this.imageMap = imageMap;
 		this.gameListener = gameListener;
 		this.sprites = newSprites;
 		this.frog = newFrog;
@@ -49,15 +50,15 @@ public class GamePanel extends JPanel {
 		super.paintComponent(g);
 		
 		// Paint the background
-		g.drawImage(this.background, 0, 0, null);//, getWidth(), getHeight(), this);
+		g.drawImage(this.imageMap.get(backgroundImageKey), 0, 0, null);//, getWidth(), getHeight(), this);
 		
 		// Paint the Enemies
 		for (Sprite s : this.sprites) {
-			g.drawImage(s.getImage(), s.getPosition().x, s.getPosition().y, null);
+			g.drawImage(this.imageMap.get(s.getImageKey()), s.getPosition().x, s.getPosition().y, null);
 		}
 		
 		// Paint the frog
-		g.drawImage(frog.getImage(), frog.getPosition().x, frog.getPosition().y, null);
+		g.drawImage(this.imageMap.get(frog.getImageKey()), frog.getPosition().x, frog.getPosition().y, null);
 	}
 	
 //	public void addGameListener(KeyListener gameListener) {

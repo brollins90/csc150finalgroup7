@@ -18,8 +18,8 @@ public class Frog extends Sprite {
 	private int speed;
 
 
-	public Frog(Point startPosition, ArrayList<Image> images) {
-		super(startPosition, images);
+	public Frog(Point startPosition, ArrayList<String> imageKeys, int width) {
+		super(startPosition, imageKeys, width);
 		this.startingLocation = startPosition;
 		this.speed = 0;
 	}

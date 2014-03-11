@@ -10,8 +10,8 @@ public class Enemy extends Sprite {
 	protected int changeTimeDefault;
 	protected int changeTime;
 	
-	public Enemy(Point startPosition, int spriteSpeed, ArrayList<Image> images, int changeTime) {
-		super(startPosition, images);
+	public Enemy(Point startPosition, ArrayList<String> imageKeys, int width, int spriteSpeed, int changeTime) {
+		super(startPosition, imageKeys, width);
 		this.speed = spriteSpeed;
 		this.isEvil = true;
 		this.changeTimeDefault = changeTime;
@@ -42,7 +42,7 @@ public class Enemy extends Sprite {
 			}
 		}
 		
-		int numberOfImages = super.images.size();
+		int numberOfImages = super.imageKeys.size();
 		// rotate the images
 		if (numberOfImages != 1) {
 			for (int i = 0; i < numberOfImages; i++) {

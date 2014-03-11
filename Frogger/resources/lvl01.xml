@@ -21,6 +21,13 @@
     <!-- Lane 0 - Lilly Pads -->
     <Lane>
     	<IsBad>true</IsBad>
+    	<Sprite>
+    		<Type>Turtle</Type>
+    		<XCoord>0</XCoord>
+    		<Speed>-4</Speed>
+    		<Image>lvl01/turtle_01.png</Image>
+    		<ChangeTime>0</ChangeTime>
+    	</Sprite>
     </Lane>
     <!-- Lane 1 - Log Right -->
     <Lane>
@@ -38,14 +45,14 @@
     	</Sprite>
     	<Sprite>
     		<Type>Turtle</Type>
-    		<XCoord>150</XCoord>
+    		<XCoord>100</XCoord>
     		<Speed>-4</Speed>
     		<Image>lvl01/turtle_01.png</Image>
     		<ChangeTime>0</ChangeTime>
     	</Sprite>
     	<Sprite>
     		<Type>Turtle</Type>
-    		<XCoord>300</XCoord>
+    		<XCoord>200</XCoord>
     		<Speed>-4</Speed>
     		<Image>lvl01/turtle_01.png</Image>
     		<Image>lvl01/turtle_30.png</Image>
