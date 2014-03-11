@@ -108,12 +108,22 @@ public class Game {
 	}
 	
 	private void checkCollision() {
+		if(this.frog.getPosition().x < 0 || this.frog.getPosition().x > 350){
+			frog.reset();
+			lives--;
+		}
+		
 		for (Sprite s : sprites) {
 		 if(lives!=0){
 			if (this.frog.checkCollision(s)) {
 				System.out.println("COLLIDED: " + s.toString());
+				if(s instanceof Turtle && ((Turtle) s).isEvil){
+					frog.speed = ((Turtle) s).speed;
+					frog.move();
+				}else{
 				frog.reset();
 				lives--;
+				}
 			}
 		 } else{
 			 System.exit(0);
