@@ -4,7 +4,7 @@
   	
     <Name>Level 2 - Frogger</Name>
     <LevelFolder>lvl02</LevelFolder>
-    <BackgroundImage>lvl02_bg.png</BackgroundImage>
+    <BackgroundImage>lvl02-bg.png</BackgroundImage>
     <ColumnWidth>25</ColumnWidth>
     <LaneHeight>40</LaneHeight>
     <NumberOfColumns>14</NumberOfColumns>
@@ -19,6 +19,10 @@
     	<ImageDead></ImageDead>
     </Frog>
     
+    <!-- Top -->
+    <Lane>
+    	<IsBad>false</IsBad>
+    </Lane>
     <!-- Lane 0 - Lilly Pads -->
     <Lane>
     	<IsBad>false</IsBad>
@@ -354,6 +358,11 @@
     	</Sprite>
     </Lane>
     <!--  Lane 12 - Grass -->
+    <Lane>
+    	<IsBad>false</IsBad>
+    </Lane>
+    
+    <!-- Bottom -->
     <Lane>
     	<IsBad>false</IsBad>
     </Lane>

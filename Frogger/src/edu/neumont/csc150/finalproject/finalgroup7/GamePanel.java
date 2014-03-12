@@ -36,7 +36,7 @@ public class GamePanel extends JPanel {
 		this.addKeyListener(new PanelKeyListener());
 
 		// TODO set preferredSize
-		this.setPreferredSize(new Dimension(350, 520));
+		this.setPreferredSize(new Dimension(350, 600));
 
 		frame.setContentPane(this);
 		frame.pack();

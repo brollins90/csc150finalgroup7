@@ -68,11 +68,20 @@ public class Game {
 		for (Sprite s : sprites) {
 			if (this.frog.checkCollision(s)) {
 				System.out.println("COLLIDED: " + s.toString());
-				if (s instanceof Turtle && ((Turtle) s).isFriendly) {
-					frog.setSpeed(((Turtle) s).speed);
-					frog.move();
-				} else {
+				// If it is not friendly, then kill the frog.
+				if (!s.isFriendly()) {
 					killFrog();
+				} else {
+					// If it is a Log 
+					if (s instanceof Log) {
+						frog.setSpeed(((Log) s).getSpeed());
+						frog.move();
+					}
+					// If it is a LillyPad
+					else if (s instanceof LillyPad) {
+						frog.reset();
+						s.setImage(LillyPad.lillypad_completed.COMPLETED.ordinal());
+					}
 				}
 			}
 

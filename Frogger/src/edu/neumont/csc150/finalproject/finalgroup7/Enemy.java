@@ -4,7 +4,6 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 public class Enemy extends Sprite {
-	protected boolean isFriendly;
 	protected int speed;
 	protected int changeTimeDefault;
 	protected int changeTime;
@@ -12,7 +11,7 @@ public class Enemy extends Sprite {
 	public Enemy(Point startPosition, ArrayList<String> imageKeys, int width, int spriteSpeed, int changeTime) {
 		super(startPosition, imageKeys, width);
 		this.speed = spriteSpeed;
-		this.isFriendly = false;
+		super.friendly = false;
 		this.changeTimeDefault = changeTime;
 		this.changeTime = changeTime;
 
@@ -20,10 +19,6 @@ public class Enemy extends Sprite {
 
 	public int getSpeed() {
 		return this.speed;
-	}
-
-	public boolean isFriendly() {
-		return this.isFriendly;
 	}
 
 	@Override

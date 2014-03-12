@@ -18,15 +18,51 @@
 			<ImageDown>frog-down.png</ImageDown>
 			<ImageDead></ImageDead>
 		</Frog>
-
+		<!-- TOP -->
+		<Lane>
+			<IsBad>false</IsBad>
+		</Lane>
 		<!-- Lane 0 - Lilly Pads -->
 		<Lane>
 			<IsBad>true</IsBad>
 			<Sprite>
-				<Type>Turtle</Type>
-				<XCoord>0</XCoord>
-				<Speed>-4</Speed>
-				<Image>turtle01-01.png</Image>
+				<Type>LillyPad</Type>
+				<XCoord>21</XCoord>
+				<Speed>0</Speed>
+				<Image>lillypad-01.png</Image>
+				<Image>lillypad-02.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>LillyPad</Type>
+				<XCoord>91</XCoord>
+				<Speed>0</Speed>
+				<Image>lillypad-01.png</Image>
+				<Image>lillypad-02.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>LillyPad</Type>
+				<XCoord>161</XCoord>
+				<Speed>0</Speed>
+				<Image>lillypad-01.png</Image>
+				<Image>lillypad-02.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>LillyPad</Type>
+				<XCoord>231</XCoord>
+				<Speed>0</Speed>
+				<Image>lillypad-01.png</Image>
+				<Image>lillypad-02.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>LillyPad</Type>
+				<XCoord>301</XCoord>
+				<Speed>0</Speed>
+				<Image>lillypad-01.png</Image>
+				<Image>lillypad-02.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 		</Lane>
@@ -294,6 +330,10 @@
 			</Sprite>
 		</Lane>
 		<!-- Lane 12 - Grass -->
+		<Lane>
+			<IsBad>false</IsBad>
+		</Lane>
+		<!-- Bottom -->
 		<Lane>
 			<IsBad>false</IsBad>
 		</Lane>

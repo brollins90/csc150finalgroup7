@@ -9,6 +9,7 @@ public abstract class Sprite {
 	protected Point position;
 	protected int imageIndex;
 	protected int width;
+	protected boolean friendly;
 
 	public Sprite(Point startPosition, ArrayList<String> imageKeys, int width) {
 
@@ -16,6 +17,11 @@ public abstract class Sprite {
 		this.setImage(0);
 		this.position = startPosition;
 		this.width = width;
+		this.friendly = true;
+	}
+	
+	public boolean isFriendly() {
+		return this.friendly;
 	}
 
 	public String getImageKey() {

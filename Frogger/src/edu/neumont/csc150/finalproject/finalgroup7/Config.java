@@ -124,7 +124,7 @@ public class Config {
 				addImageToMap(frogImageDownKey);
 				frogImageKeys.add(frogImageDownKey);
 
-				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 1) * this.mapLaneHeight), frogImageKeys, this.imageMap.get(frogImageKeys.get(0)).getWidth(null));
+				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 2) * this.mapLaneHeight), frogImageKeys, this.imageMap.get(frogImageKeys.get(0)).getWidth(null));
 
 				for (int laneIndex = 0; laneIndex < laneNodes.getLength(); laneIndex++) {
 					System.out.println("lane " + laneIndex + ":");
@@ -153,16 +153,13 @@ public class Config {
 						}
 						int spriteChangeTime = Integer.parseInt(curSprite.getElementsByTagName("ChangeTime").item(0).getFirstChild().getTextContent());
 
-						// String spriteImage =
-						// curSprite.getElementsByTagName("Image").item(0).getFirstChild().getTextContent();
 						if (spriteType.equals("Turtle")) {
 							this.lanes[laneIndex].addSprite(new Turtle(new Point(spriteXCoord, spriteYCoord), spriteImageKeys, this.imageMap.get(spriteImageKeys.get(0)).getWidth(null), spriteSpeed, spriteChangeTime));
 						} else if (spriteType.equals("Log")) {
-							// this.lanes[laneIndex].addSprite(new Log(new
-							// Point(spriteXCoord, spriteYCoord), spriteSpeed,
-							// spriteImageKeys, spriteChangeTime));
 						} else if (spriteType.equals("Car")) {
 							this.lanes[laneIndex].addSprite(new Enemy(new Point(spriteXCoord, spriteYCoord), spriteImageKeys, this.imageMap.get(spriteImageKeys.get(0)).getWidth(null), spriteSpeed, spriteChangeTime));
+						} else if (spriteType.equals("LillyPad")) {
+							this.lanes[laneIndex].addSprite(new LillyPad(new Point(spriteXCoord, spriteYCoord), spriteImageKeys, this.imageMap.get(spriteImageKeys.get(0)).getWidth(null)));
 						}
 					} // end Sprites
 				} // end Lanes
