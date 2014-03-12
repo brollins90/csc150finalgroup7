@@ -3,6 +3,7 @@
 	<Map>
 
 		<Name>Level 1 - Mario</Name>
+		<StartingLives>3</StartingLives>
 		<LevelFolder>lvl01</LevelFolder>
 		<BackgroundImage>lvl01-bg.png</BackgroundImage>
 		<ColumnWidth>25</ColumnWidth>

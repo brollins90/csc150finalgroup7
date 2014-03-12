@@ -20,6 +20,7 @@ import org.w3c.dom.NodeList;
 public class Config {
 
 	private String mapBackgroundImageKey;
+	private int startingLives;
 	private int mapColumnWidth;
 	private int mapLaneHeight;
 	private String mapName;
@@ -36,6 +37,10 @@ public class Config {
 
 	public String getMapName() {
 		return this.mapName;
+	}
+	
+	public int getStartingLives() {
+		return this.startingLives;
 	}
 
 	public int getColumnWidth() {
@@ -91,6 +96,7 @@ public class Config {
 				System.out.println("Current Node: " + curNode.getNodeName());
 
 				this.mapName = curNode.getElementsByTagName("Name").item(0).getFirstChild().getTextContent();
+				this.startingLives = Integer.parseInt(curNode.getElementsByTagName("StartingLives").item(0).getFirstChild().getTextContent());
 				this.resourcePath += curNode.getElementsByTagName("LevelFolder").item(0).getFirstChild().getTextContent() + "/";
 				this.mapBackgroundImageKey = curNode.getElementsByTagName("BackgroundImage").item(0).getFirstChild().getTextContent();
 				addImageToMap(mapBackgroundImageKey);

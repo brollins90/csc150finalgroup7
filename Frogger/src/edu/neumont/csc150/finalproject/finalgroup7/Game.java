@@ -15,7 +15,7 @@ public class Game {
 	private Frog frog;
 	private ArrayList<Sprite> sprites;
 	private int timerNumber = 100;
-	private int lives = 3;
+	private int lives;
 
 	public Game(Config map) {
 		// Load the map
@@ -23,7 +23,7 @@ public class Game {
 
 		// Create the GamePanel
 		this.panel = new GamePanel(map.getBackgroundImageKey(), new GameKeyListener(), map.getImageMap(), this.sprites, this.frog);
-
+		
 		TimerListener tListener = new TimerListener();
 		Timer gameTimer = new Timer(this.timerNumber, tListener);
 		gameTimer.setRepeats(true);
@@ -33,6 +33,7 @@ public class Game {
 	private void loadMap(Config map) {
 		this.map = map;
 		this.sprites = new ArrayList<Sprite>();
+		this.lives = map.getStartingLives();
 
 		for (Lane l : this.map.getLanes()) {
 			for (Sprite s : l.sprites) {
