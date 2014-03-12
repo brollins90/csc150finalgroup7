@@ -87,6 +87,7 @@ public class Config {
 				System.out.println("Current Node: " + curNode.getNodeName());
 
 				this.mapName = curNode.getElementsByTagName("Name").item(0).getFirstChild().getTextContent();
+				this.resourcePath += curNode.getElementsByTagName("LevelFolder").item(0).getFirstChild().getTextContent();
 				this.mapBackgroundImageKey = curNode.getElementsByTagName("BackgroundImage").item(0).getFirstChild().getTextContent();
 				addImageToMap(mapBackgroundImageKey);
 				this.mapColumnWidth = Integer.parseInt(curNode.getElementsByTagName("ColumnWidth").item(0).getFirstChild().getTextContent());
@@ -123,6 +124,7 @@ public class Config {
 				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 1) * this.mapLaneHeight), frogImageKeys, this.imageMap.get(frogImageKeys.get(0)).getWidth(null));
 				
 				for (int laneIndex = 0; laneIndex < laneNodes.getLength(); laneIndex++) {
+					System.out.println("lane " + laneIndex + ":");
 					Element curLane = (Element) laneNodes.item(laneIndex);
 					boolean laneIsBad = Boolean.parseBoolean(curNode.getElementsByTagName("Lane").item(0).getFirstChild().getTextContent());
 					
@@ -135,6 +137,7 @@ public class Config {
 						Element curSprite = (Element) spriteList.item(spriteIndex);
 
 						String spriteType = curSprite.getElementsByTagName("Type").item(0).getFirstChild().getTextContent();
+						System.out.println(spriteType);
 						int spriteXCoord = Integer.parseInt(curSprite.getElementsByTagName("XCoord").item(0).getFirstChild().getTextContent());
 						int spriteYCoord = laneIndex * this.mapLaneHeight;
 						int spriteSpeed = Integer.parseInt(curSprite.getElementsByTagName("Speed").item(0).getFirstChild().getTextContent());
@@ -149,11 +152,11 @@ public class Config {
 						
 						//String spriteImage = curSprite.getElementsByTagName("Image").item(0).getFirstChild().getTextContent();
 						if (spriteType.equals("Turtle")) {
-							this.lanes[laneIndex].addSprite(new Turtle(new Point(spriteXCoord, spriteYCoord), spriteImageKeys, this.imageMap.get(frogImageKeys.get(0)).getWidth(null), spriteSpeed, spriteChangeTime));
+							this.lanes[laneIndex].addSprite(new Turtle(new Point(spriteXCoord, spriteYCoord), spriteImageKeys, this.imageMap.get(spriteImageKeys.get(0)).getWidth(null), spriteSpeed, spriteChangeTime));
 						} else if (spriteType.equals("Log")) {
 							//this.lanes[laneIndex].addSprite(new Log(new Point(spriteXCoord, spriteYCoord), spriteSpeed, spriteImageKeys, spriteChangeTime));
 						} else if (spriteType.equals("Car")) {
-							this.lanes[laneIndex].addSprite(new Enemy(new Point(spriteXCoord, spriteYCoord), spriteImageKeys, this.imageMap.get(frogImageKeys.get(0)).getWidth(null), spriteSpeed, spriteChangeTime));
+							this.lanes[laneIndex].addSprite(new Enemy(new Point(spriteXCoord, spriteYCoord), spriteImageKeys, this.imageMap.get(spriteImageKeys.get(0)).getWidth(null), spriteSpeed, spriteChangeTime));
 						}
 					} // end Sprites					
 				} // end Lanes

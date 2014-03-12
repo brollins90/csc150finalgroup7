@@ -38,7 +38,7 @@ public class Enemy extends Sprite {
 			}
 		} else { // Moving to the right
 			if (this.position.x > 350 + this.width) {
-				this.position.x = 0;
+				this.position.x = 0 - this.width;
 			}
 		}
 		
