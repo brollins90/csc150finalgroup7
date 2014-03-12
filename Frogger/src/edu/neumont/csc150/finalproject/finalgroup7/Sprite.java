@@ -1,8 +1,6 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
-import java.awt.Image;
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public abstract class Sprite {
@@ -17,7 +15,7 @@ public abstract class Sprite {
 		this.imageKeys = imageKeys;
 		this.setImage(0);
 		this.position = startPosition;
-		this.width = width; //this.images.get(0).getWidth(null);
+		this.width = width;
 	}
 
 	public String getImageKey() {
@@ -54,7 +52,7 @@ public abstract class Sprite {
 		}
 		return false;
 	}
-	
+
 	public abstract void move();
 
 }

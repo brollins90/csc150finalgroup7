@@ -1,13 +1,10 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.swing.Timer;
 
@@ -18,7 +15,6 @@ public class Game {
 	private Frog frog;
 	private ArrayList<Sprite> sprites;
 	private int timerNumber = 100;
-	private int a = 0;
 	private int lives = 3;
 
 	public Game(Config map) {
@@ -54,7 +50,7 @@ public class Game {
 	private void updatePanel() {
 		this.panel.repaint();
 	}
-	
+
 	private void killFrog() {
 		lives--;
 		if (lives > 0) {
@@ -72,14 +68,14 @@ public class Game {
 		for (Sprite s : sprites) {
 			if (this.frog.checkCollision(s)) {
 				System.out.println("COLLIDED: " + s.toString());
-				if (s instanceof Turtle && ((Turtle) s).isEvil) {
+				if (s instanceof Turtle && ((Turtle) s).isFriendly) {
 					frog.setSpeed(((Turtle) s).speed);
 					frog.move();
 				} else {
 					killFrog();
 				}
 			}
-			
+
 		}
 	}
 

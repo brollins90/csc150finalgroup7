@@ -1,305 +1,301 @@
 <?xml version="1.0"?>
 <SuperFrogger>
-  <Map>
-  	
-    <Name>Level 1 - Mario</Name>
-    <LevelFolder>lvl01</LevelFolder>
-    <BackgroundImage>lvl01_bg.png</BackgroundImage>
-    <ColumnWidth>25</ColumnWidth>
-    <LaneHeight>40</LaneHeight>
-    <NumberOfColumns>14</NumberOfColumns>
-    <NumberOfRows>13</NumberOfRows>
-    
-    <Frog>
-    	<Column>7</Column>
-    	<ImageUp>moving up.png</ImageUp>
-    	<ImageLeft>moving left.png</ImageLeft>
-    	<ImageRight>moving right.png</ImageRight>
-    	<ImageDown>moving down.png</ImageDown>
-    	<ImageDead></ImageDead>
-    </Frog>
-    
-    <!-- Lane 0 - Lilly Pads -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    	<Sprite>
-    		<Type>Turtle</Type>
-    		<XCoord>0</XCoord>
-    		<Speed>-4</Speed>
-    		<Image>lvl01/turtle_01.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    </Lane>
-    <!-- Lane 1 - Log Right -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    </Lane>
-    <!--  Lane 2 - Turtle left -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    	<Sprite>
-    		<Type>Turtle</Type>
-    		<XCoord>0</XCoord>
-    		<Speed>-4</Speed>
-    		<Image>lvl01/turtle_01.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Turtle</Type>
-    		<XCoord>100</XCoord>
-    		<Speed>-4</Speed>
-    		<Image>lvl01/turtle_01.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Turtle</Type>
-    		<XCoord>200</XCoord>
-    		<Speed>-4</Speed>
-    		<Image>lvl01/turtle_01.png</Image>
-    		<Image>lvl01/turtle_30.png</Image>
-    		<Image>lvl01/turtle_29.png</Image>
-    		<Image>lvl01/turtle_28.png</Image>
-    		<Image>lvl01/turtle_27.png</Image>
-    		<Image>lvl01/turtle_26.png</Image>
-    		<Image>lvl01/turtle_25.png</Image>
-    		<Image>lvl01/Transparent.png</Image>
-    		<Image>lvl01/Transparent.png</Image>
-    		<Image>lvl01/Transparent.png</Image>
-    		<Image>lvl01/Transparent.png</Image>
-    		<Image>lvl01/Transparent.png</Image>
-    		<Image>lvl01/Transparent.png</Image>
-    		<Image>lvl01/Transparent.png</Image>
-    		<Image>lvl01/turtle_17.png</Image>
-    		<Image>lvl01/turtle_16.png</Image>
-    		<Image>lvl01/turtle_15.png</Image>
-    		<Image>lvl01/turtle_14.png</Image>
-    		<Image>lvl01/turtle_13.png</Image>
-    		<Image>lvl01/turtle_12.png</Image>
-    		<Image>lvl01/turtle_11.png</Image>
-    		<Image>lvl01/turtle_10.png</Image>
-    		<Image>lvl01/turtle_09.png</Image>
-    		<Image>lvl01/turtle_08.png</Image>
-    		<Image>lvl01/turtle_07.png</Image>
-    		<Image>lvl01/turtle_06.png</Image>
-    		<Image>lvl01/turtle_05.png</Image>
-    		<Image>lvl01/turtle_04.png</Image>
-    		<Image>lvl01/turtle_03.png</Image>
-    		<Image>lvl01/turtle_02.png</Image>
-    		<ChangeTime>45</ChangeTime>
-    	</Sprite>
-    </Lane>
-    <!--  Lane 3 - Log Right -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    </Lane>
-    <!--  Lane 4 - Log Right -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    </Lane>
-    <!--  Lane 5 - Turtle left -->
-    <Lane>
-    	<IsBad>true</IsBad><!-- 
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>30</XCoord>
-    		<Speed>-6</Speed>
-    		<Image>Wiggler Floating.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>110</XCoord>
-    		<Speed>-6</Speed>
-    		<Image>Wiggler Floating.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>190</XCoord>
-    		<Speed>-6</Speed>
-    		<Image>Wiggler Floating.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite> -->
-    </Lane>
-    <!--  Lane 6 - Grass -->
-    <Lane>
-    	<IsBad>false</IsBad>
-    </Lane>
-    <!--  Lane 7 - Car Left -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>100</XCoord>
-    		<Speed>-5</Speed>
-    		<Image>Bom-omb pos3.png</Image>
-    		<Image>bob-omb pos1.png</Image>
-    		<Image>Bomb-omb pos2.png</Image>
-    		<ChangeTime>3</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>140</XCoord>
-    		<Speed>-5</Speed>
-    		<Image>Bom-omb pos3.png</Image>
-    		<Image>bob-omb pos1.png</Image>
-    		<Image>Bomb-omb pos2.png</Image>
-    		<ChangeTime>3</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>310</XCoord>
-    		<Speed>-5</Speed>
-    		<Image>Bom-omb pos3.png</Image>
-    		<Image>bob-omb pos1.png</Image>
-    		<Image>Bomb-omb pos2.png</Image>
-    		<ChangeTime>3</ChangeTime>
-    	</Sprite>
-    	    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>270</XCoord>
-    		<Speed>-5</Speed>
-    		<Image>Bom-omb pos3.png</Image>
-    		<Image>bob-omb pos1.png</Image>
-    		<Image>Bomb-omb pos2.png</Image>
-    		<ChangeTime>3</ChangeTime>
-    	</Sprite>
-    </Lane>
-    <!--  Lane 8 - Car Right -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>0</XCoord>
-    		<Speed>6</Speed>
-    		<Image>Bullet Bill.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>100</XCoord>
-    		<Speed>6</Speed>
-    		<Image>Bullet Bill.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>200</XCoord>
-    		<Speed>6</Speed>
-    		<Image>Bullet Bill.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>300</XCoord>
-    		<Speed>6</Speed>
-    		<Image>Bullet Bill.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    </Lane>
-    <!--  Lane 9 - Car Left -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>0</XCoord>
-    		<Speed>-2</Speed>
-    		<Image>Koopa moving.png</Image>
-    		<Image>Koopa Standing.png</Image>
-    		<ChangeTime>2</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>170</XCoord>
-    		<Speed>-2</Speed>
-    		<Image>Koopa moving.png</Image>
-    		<Image>Koopa Standing.png</Image>
-    		<ChangeTime>2</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>300</XCoord>
-    		<Speed>-2</Speed>
-    		<Image>Koopa moving.png</Image>
-    		<Image>Koopa Standing.png</Image>
-    		<ChangeTime>2</ChangeTime>
-    	</Sprite>
-    </Lane>
-    <!--  Lane 10 - Car Right -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>0</XCoord>
-    		<Speed>4</Speed>
-    		<Image>Shy guy 2.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>50</XCoord>
-    		<Speed>4</Speed>
-    		<Image>Shy guy 2.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>100</XCoord>
-    		<Speed>4</Speed>
-    		<Image>Shy guy 2.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>150</XCoord>
-    		<Speed>4</Speed>
-    		<Image>Shy guy 2.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>200</XCoord>
-    		<Speed>4</Speed>
-    		<Image>Shy guy 2.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	   	    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>250</XCoord>
-    		<Speed>4</Speed>
-    		<Image>Shy guy 2.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    </Lane>
-    <!--  Lane 11 - Car Left -->
-    <Lane>
-    	<IsBad>true</IsBad>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>0</XCoord>
-    		<Speed>-7</Speed>
-    		<Image>Goomba 2.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>100</XCoord>
-    		<Speed>-7</Speed>
-    		<Image>Goomba 2.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    	<Sprite>
-    		<Type>Car</Type>
-    		<XCoord>200</XCoord>
-    		<Speed>-7</Speed>
-    		<Image>Goomba 2.png</Image>
-    		<ChangeTime>0</ChangeTime>
-    	</Sprite>
-    </Lane>
-    <!--  Lane 12 - Grass -->
-    <Lane>
-    	<IsBad>false</IsBad>
-    </Lane>
-  </Map>
+	<Map>
+
+		<Name>Level 1 - Mario</Name>
+		<LevelFolder>lvl01</LevelFolder>
+		<BackgroundImage>lvl01-bg.png</BackgroundImage>
+		<ColumnWidth>25</ColumnWidth>
+		<LaneHeight>40</LaneHeight>
+		<NumberOfColumns>14</NumberOfColumns>
+		<NumberOfRows>13</NumberOfRows>
+
+		<Frog>
+			<Column>7</Column>
+			<ImageUp>frog-up.png</ImageUp>
+			<ImageLeft>frog-left.png</ImageLeft>
+			<ImageRight>frog-right.png</ImageRight>
+			<ImageDown>frog-down.png</ImageDown>
+			<ImageDead></ImageDead>
+		</Frog>
+
+		<!-- Lane 0 - Lilly Pads -->
+		<Lane>
+			<IsBad>true</IsBad>
+			<Sprite>
+				<Type>Turtle</Type>
+				<XCoord>0</XCoord>
+				<Speed>-4</Speed>
+				<Image>turtle01-01.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+		</Lane>
+		<!-- Lane 1 - Log Right -->
+		<Lane>
+			<IsBad>true</IsBad>
+		</Lane>
+		<!-- Lane 2 - Turtle left -->
+		<Lane>
+			<IsBad>true</IsBad>
+			<Sprite>
+				<Type>Turtle</Type>
+				<XCoord>0</XCoord>
+				<Speed>-4</Speed>
+				<Image>turtle01-01.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Turtle</Type>
+				<XCoord>100</XCoord>
+				<Speed>-4</Speed>
+				<Image>turtle01-01.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Turtle</Type>
+				<XCoord>200</XCoord>
+				<Speed>-4</Speed>
+				<Image>turtle01-01.png</Image>
+				<Image>turtle01-30.png</Image>
+				<Image>turtle01-29.png</Image>
+				<Image>turtle01-28.png</Image>
+				<Image>turtle01-27.png</Image>
+				<Image>turtle01-26.png</Image>
+				<Image>turtle01-25.png</Image>
+				<Image>Transparent.png</Image>
+				<Image>Transparent.png</Image>
+				<Image>Transparent.png</Image>
+				<Image>Transparent.png</Image>
+				<Image>Transparent.png</Image>
+				<Image>Transparent.png</Image>
+				<Image>Transparent.png</Image>
+				<Image>turtle01-17.png</Image>
+				<Image>turtle01-16.png</Image>
+				<Image>turtle01-15.png</Image>
+				<Image>turtle01-14.png</Image>
+				<Image>turtle01-13.png</Image>
+				<Image>turtle01-12.png</Image>
+				<Image>turtle01-11.png</Image>
+				<Image>turtle01-10.png</Image>
+				<Image>turtle01-09.png</Image>
+				<Image>turtle01-08.png</Image>
+				<Image>turtle01-07.png</Image>
+				<Image>turtle01-06.png</Image>
+				<Image>turtle01-05.png</Image>
+				<Image>turtle01-04.png</Image>
+				<Image>turtle01-03.png</Image>
+				<Image>turtle01-02.png</Image>
+				<ChangeTime>45</ChangeTime>
+			</Sprite>
+		</Lane>
+		<!-- Lane 3 - Log Right -->
+		<Lane>
+			<IsBad>true</IsBad>
+		</Lane>
+		<!-- Lane 4 - Log Right -->
+		<Lane>
+			<IsBad>true</IsBad>
+		</Lane>
+		<!-- Lane 5 - Turtle left -->
+		<Lane>
+			<IsBad>true</IsBad><!-- <Sprite> <Type>Car</Type> <XCoord>30</XCoord> 
+				<Speed>-6</Speed> <Image>Wiggler Floating.png</Image> <ChangeTime>0</ChangeTime> 
+				</Sprite> <Sprite> <Type>Car</Type> <XCoord>110</XCoord> <Speed>-6</Speed> 
+				<Image>Wiggler Floating.png</Image> <ChangeTime>0</ChangeTime> </Sprite> 
+				<Sprite> <Type>Car</Type> <XCoord>190</XCoord> <Speed>-6</Speed> <Image>Wiggler 
+				Floating.png</Image> <ChangeTime>0</ChangeTime> </Sprite> -->
+		</Lane>
+		<!-- Lane 6 - Grass -->
+		<Lane>
+			<IsBad>false</IsBad>
+		</Lane>
+		<!-- Lane 7 - Car Left -->
+		<Lane>
+			<IsBad>true</IsBad>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>100</XCoord>
+				<Speed>-5</Speed>
+				<Image>car01-01.png</Image>
+				<Image>car01-02.png</Image>
+				<Image>car01-03.png</Image>
+				<ChangeTime>3</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>140</XCoord>
+				<Speed>-5</Speed>
+				<Image>car01-01.png</Image>
+				<Image>car01-02.png</Image>
+				<Image>car01-03.png</Image>
+				<ChangeTime>3</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>270</XCoord>
+				<Speed>-5</Speed>
+				<Image>car01-01.png</Image>
+				<Image>car01-02.png</Image>
+				<Image>car01-03.png</Image>
+				<ChangeTime>3</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>310</XCoord>
+				<Speed>-5</Speed>
+				<Image>car01-01.png</Image>
+				<Image>car01-02.png</Image>
+				<Image>car01-03.png</Image>
+				<ChangeTime>3</ChangeTime>
+			</Sprite>
+		</Lane>
+		<!-- Lane 8 - Car Right -->
+		<Lane>
+			<IsBad>true</IsBad>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>0</XCoord>
+				<Speed>6</Speed>
+				<Image>car02-01.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>100</XCoord>
+				<Speed>6</Speed>
+				<Image>car02-01.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>200</XCoord>
+				<Speed>6</Speed>
+				<Image>car02-01.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>300</XCoord>
+				<Speed>6</Speed>
+				<Image>car02-01.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+		</Lane>
+		<!-- Lane 9 - Car Left -->
+		<Lane>
+			<IsBad>true</IsBad>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>0</XCoord>
+				<Speed>-2</Speed>
+				<Image>car03-01.png</Image>
+				<Image>car03-01.png</Image>
+				<ChangeTime>2</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>170</XCoord>
+				<Speed>-2</Speed>
+				<Image>car03-01.png</Image>
+				<Image>car03-01.png</Image>
+				<ChangeTime>2</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>300</XCoord>
+				<Speed>-2</Speed>
+				<Image>car03-01.png</Image>
+				<Image>car03-01.png</Image>
+				<ChangeTime>2</ChangeTime>
+			</Sprite>
+		</Lane>
+		<!-- Lane 10 - Car Right -->
+		<Lane>
+			<IsBad>true</IsBad>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>0</XCoord>
+				<Speed>4</Speed>
+				<Image>car04-01.png</Image>
+				<Image>car04-02.png</Image>
+				<ChangeTime>2</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>50</XCoord>
+				<Speed>4</Speed>
+				<Image>car04-01.png</Image>
+				<Image>car04-02.png</Image>
+				<ChangeTime>2</ChangeTime>
+			</Sprite>
+
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>100</XCoord>
+				<Speed>4</Speed>
+				<Image>car04-01.png</Image>
+				<Image>car04-02.png</Image>
+				<ChangeTime>2</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>150</XCoord>
+				<Speed>4</Speed>
+				<Image>car04-01.png</Image>
+				<Image>car04-02.png</Image>
+				<ChangeTime>2</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>200</XCoord>
+				<Speed>4</Speed>
+				<Image>car04-01.png</Image>
+				<Image>car04-02.png</Image>
+				<ChangeTime>2</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>250</XCoord>
+				<Speed>4</Speed>
+				<Image>car04-01.png</Image>
+				<Image>car04-02.png</Image>
+				<ChangeTime>2</ChangeTime>
+			</Sprite>
+		</Lane>
+		<!-- Lane 11 - Car Left -->
+		<Lane>
+			<IsBad>true</IsBad>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>0</XCoord>
+				<Speed>-7</Speed>
+				<Image>car05-01.png</Image>
+				<Image>car05-02.png</Image>
+				<Image>car05-03.png</Image>
+				<ChangeTime>3</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>100</XCoord>
+				<Speed>-7</Speed>
+				<Image>car05-01.png</Image>
+				<Image>car05-02.png</Image>
+				<Image>car05-03.png</Image>
+				<ChangeTime>3</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>200</XCoord>
+				<Speed>-7</Speed>
+				<Image>car05-01.png</Image>
+				<Image>car05-02.png</Image>
+				<Image>car05-03.png</Image>
+				<ChangeTime>3</ChangeTime>
+			</Sprite>
+		</Lane>
+		<!-- Lane 12 - Grass -->
+		<Lane>
+			<IsBad>false</IsBad>
+		</Lane>
+	</Map>
 </SuperFrogger>

@@ -1,22 +1,19 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
-import java.awt.Image;
 import java.awt.Point;
-import java.awt.Toolkit;
 import java.util.ArrayList;
 
 public class Frog extends Sprite {
-	
+
 	public enum frog_direction {
 		FROG_UP, // = 0
 		FROG_LEFT, // = 1
 		FROG_RIGHT, // = 2
 		FROG_DOWN // =3
 	}
-	
+
 	private Point startingLocation;
 	private int speed;
-
 
 	public Frog(Point startPosition, ArrayList<String> imageKeys, int width) {
 		super(startPosition, imageKeys, width);
@@ -31,35 +28,35 @@ public class Frog extends Sprite {
 	public void setSpeed(int newSpeed) {
 		this.speed = newSpeed;
 	}
-	
-	public void reset(){
+
+	public void reset() {
 		this.position = startingLocation;
 	}
+
 	public void move() {
 		this.position = new Point(this.position.x + this.speed, this.position.y);
 	}
-	
-	public void move(frog_direction dir, int numRows, int laneHeight, int numCols,  int columnWidth) {
-		
-		Point movePoint = new Point(0,0);
-		
+
+	public void move(frog_direction dir, int numRows, int laneHeight, int numCols, int columnWidth) {
+
+		Point movePoint = new Point(0, 0);
+
 		this.setImage(dir.ordinal());
-		
+
 		switch (dir) {
 		case FROG_LEFT:
-			movePoint = new Point(-1,0);
+			movePoint = new Point(-1, 0);
 			break;
 		case FROG_RIGHT:
-			movePoint = new Point(1,0);
+			movePoint = new Point(1, 0);
 			break;
 		case FROG_UP:
-			movePoint = new Point(0,-1);
+			movePoint = new Point(0, -1);
 			break;
 		case FROG_DOWN:
-			movePoint = new Point(0,1);
+			movePoint = new Point(0, 1);
 			break;
 		}
-	
 
 		// Move horizontal
 		if (movePoint.x != 0) {
@@ -78,8 +75,7 @@ public class Frog extends Sprite {
 				this.setPosition(new Point(newColumn, newRow));
 			}
 		}
-		
-		
+
 	}
 
 }

@@ -3,7 +3,7 @@
   <Map>
   	
     <Name>Level 2 - Frogger</Name>
-    <LevelFolder>lvl02/</LevelFolder>
+    <LevelFolder>lvl02</LevelFolder>
     <BackgroundImage>lvl02_bg.png</BackgroundImage>
     <ColumnWidth>25</ColumnWidth>
     <LaneHeight>40</LaneHeight>

@@ -1,8 +1,6 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
-import java.awt.Image;
 import java.awt.Point;
-import java.awt.Toolkit;
 import java.util.ArrayList;
 
 public class Turtle extends Enemy {
@@ -15,7 +13,9 @@ public class Turtle extends Enemy {
 	public void move() {
 		super.move();
 		// if the image is set to transparent, then make the rutle evil.
-		
+		if (super.getImageKey().equals("Transparent.png")) {
+			super.isFriendly = false;
+		}
 		
 	}
 	
