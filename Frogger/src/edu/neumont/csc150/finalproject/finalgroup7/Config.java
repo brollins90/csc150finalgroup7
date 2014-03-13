@@ -135,10 +135,11 @@ public class Config {
 				for (int laneIndex = 0; laneIndex < laneNodes.getLength(); laneIndex++) {
 					System.out.println("lane " + laneIndex + ":");
 					Element curLane = (Element) laneNodes.item(laneIndex);
-					boolean laneIsBad = Boolean.parseBoolean(curNode.getElementsByTagName("Lane").item(0).getFirstChild().getTextContent());
+					String friendlyString = curLane.getElementsByTagName("IsFriendly").item(0).getFirstChild().getTextContent();
+					boolean laneIsFriendly = Boolean.parseBoolean(friendlyString);
 
 					// Create the Lane object and add it the the Array
-					this.lanes[laneIndex] = new Lane(new ArrayList<Sprite>(), laneIsBad);
+					this.lanes[laneIndex] = new Lane(new ArrayList<Sprite>(), laneIsFriendly);
 
 					// Find the enemies and add them to the Lane
 					NodeList spriteList = curLane.getElementsByTagName("Sprite");

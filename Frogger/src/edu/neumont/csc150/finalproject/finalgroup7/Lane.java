@@ -7,9 +7,9 @@ public class Lane {
 	public ArrayList<Sprite> sprites;
 	private boolean isFriendly;
 
-	public Lane(ArrayList<Sprite> spritesInLane, boolean isEvilLane) {
+	public Lane(ArrayList<Sprite> spritesInLane, boolean isFriendlyLane) {
 		this.sprites = spritesInLane;
-		this.isFriendly = isEvilLane;
+		this.isFriendly = isFriendlyLane;
 	}
 
 	public boolean isFriendly() {

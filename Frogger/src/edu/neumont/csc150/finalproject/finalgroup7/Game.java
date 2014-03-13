@@ -19,13 +19,13 @@ public class Game {
 	private int lillyPadsLeft = 5;
 	private boolean gameRunning = false;
 
-	public Game(Config map, KeyListener frameListener) {
+	public Game(Config map) {
 		// Load the map
 		loadMap(map);
 
 		// Create the GamePanel
 		this.panel = new GamePanel(map.getBackgroundImageKey(), new GameKeyListener(), map.getImageMap(), this.sprites, this.frog);
-		
+
 	}
 
 	public GamePanel getGamePanel() {
@@ -87,21 +87,29 @@ public class Game {
 	}
 
 	private void checkCollision() {
+
+		// Check if something moved the frog off the edge of the world
 		if (this.frog.getPosition().x < 0 || this.frog.getPosition().x > 350) {
 			killFrog();
 		}
 
+		int currentRow = this.frog.position.y / this.map.getLaneHeight();
+		boolean laneIsFriendly = this.map.getLanes()[currentRow].isFriendly();
+
+		// check if the lane is friendly
+		// if (laneIsFriendly) {
+
+		boolean ridingAFriendly = false;
 		for (Sprite s : sprites) {
 			if (this.frog.checkCollision(s)) {
 				System.out.println("COLLIDED: " + s.toString());
-				// If it is not friendly, then kill the frog.
 				if (!s.isFriendly()) {
 					killFrog();
 				} else {
+					ridingAFriendly = true;
 					// If it is a Log
 					if (s instanceof Log) {
 						frog.setSpeed(((Log) s).getSpeed());
-						frog.move();
 					}
 					// If it is a LillyPad
 					else if (s instanceof LillyPad) {
@@ -109,7 +117,20 @@ public class Game {
 					}
 				}
 			}
-
+		}
+		if (!laneIsFriendly) {
+			System.out.println("on a unfriendly lane");
+			if (!ridingAFriendly) {
+				System.out.println("is not riding a friendly");
+				killFrog();
+			} else {
+				System.out.println("riding a friendly");
+				frog.move();
+			}
+		} else {
+			System.out.println("on a friendly lane");
+			// frog is ok
+			
 		}
 	}
 
