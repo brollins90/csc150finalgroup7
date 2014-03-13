@@ -19,34 +19,6 @@ public abstract class Sprite {
 		this.width = width;
 		this.friendly = true;
 	}
-	
-	public boolean isFriendly() {
-		return this.friendly;
-	}
-
-	public String getImageKey() {
-		return this.imageKeys.get(this.imageIndex);
-	}
-
-	public void setImage(int index) {
-		this.imageIndex = index;
-	}
-
-	public Point getPosition() {
-		return this.position;
-	}
-
-	public int getWidth() {
-		return this.width;
-	}
-
-	private int getLeftExtreme() {
-		return position.x;
-	}
-
-	private int getRightExtreme() {
-		return position.x + width;
-	}
 
 	public boolean checkCollision(Sprite otherSprite) {
 
@@ -59,6 +31,34 @@ public abstract class Sprite {
 		return false;
 	}
 
+	public String getImageKey() {
+		return this.imageKeys.get(this.imageIndex);
+	}
+
+	private int getLeftExtreme() {
+		return position.x;
+	}
+
+	public Point getPosition() {
+		return this.position;
+	}
+
+	private int getRightExtreme() {
+		return position.x + width;
+	}
+
+	public int getWidth() {
+		return this.width;
+	}
+	
+	public boolean isFriendly() {
+		return this.friendly;
+	}
+
 	public abstract void move();
+
+	public void setImage(int index) {
+		this.imageIndex = index;
+	}
 
 }

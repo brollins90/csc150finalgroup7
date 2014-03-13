@@ -16,6 +16,7 @@ public class GamePanel extends JPanel {
 	private String backgroundImageKey;
 	private Map<String, Image> imageMap;
 	private KeyListener gameListener;
+	private JFrame gameFrame;
 
 	ArrayList<Sprite> sprites;
 	Frog frog;
@@ -27,10 +28,10 @@ public class GamePanel extends JPanel {
 		this.gameListener = gameListener;
 		this.sprites = newSprites;
 		this.frog = newFrog;
-
-		JFrame frame = new JFrame("Super Frogger");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+		
+		this.gameFrame =  new JFrame("Super Frogger");
+		this.gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		this.gameFrame.setLocationRelativeTo(null);
 
 		this.setFocusable(true);
 		this.addKeyListener(new PanelKeyListener());
@@ -38,10 +39,14 @@ public class GamePanel extends JPanel {
 		// TODO set preferredSize
 		this.setPreferredSize(new Dimension(350, 600));
 
-		frame.setContentPane(this);
-		frame.pack();
-		frame.setVisible(true);
+		this.gameFrame.setContentPane(this);
+		this.gameFrame.pack();
+		this.gameFrame.setVisible(true);
 
+	}
+	
+	public JFrame getGameFrame() {
+		return this.gameFrame;
 	}
 
 	@Override
@@ -60,37 +65,25 @@ public class GamePanel extends JPanel {
 		g.drawImage(this.imageMap.get(frog.getImageKey()), frog.getPosition().x, frog.getPosition().y, null);
 	}
 
-	// public void addGameListener(KeyListener gameListener) {
-	// this.gameListener = gameListener;
-	// }
-	//
-	// public void addSprites(ArrayList<Sprite> newSprites) {
-	// this.sprites = newSprites;
-	// }
-	//
-	// public void addFrog(Frog newFrog) {
-	// this.frog = newFrog;
-	// }
-
 	private class PanelKeyListener implements KeyListener {
 
 		@Override
 		public void keyPressed(KeyEvent arg0) {
-			System.out.println("panel-keyPressed: " + arg0.getKeyCode());
+//			System.out.println("panel-keyPressed: " + arg0.getKeyCode());
 			gameListener.keyPressed(arg0);
 			repaint();
 		}
 
 		@Override
 		public void keyReleased(KeyEvent arg0) {
-			System.out.println("panel-keyReleased: " + arg0.getKeyCode());
+//			System.out.println("panel-keyReleased: " + arg0.getKeyCode());
 			gameListener.keyReleased(arg0);
 			repaint();
 		}
 
 		@Override
 		public void keyTyped(KeyEvent arg0) {
-			System.out.println("panel-keyTyped: " + arg0.getKeyCode());
+//			System.out.println("panel-keyTyped: " + arg0.getKeyCode());
 			gameListener.keyTyped(arg0);
 		}
 

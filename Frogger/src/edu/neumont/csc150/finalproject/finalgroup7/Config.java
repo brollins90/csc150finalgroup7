@@ -19,58 +19,17 @@ import org.w3c.dom.NodeList;
 
 public class Config {
 
+	private Frog frog;
+	private Map<String, Image> imageMap;
+	private Lane[] lanes;
 	private String mapBackgroundImageKey;
-	private int startingLives;
 	private int mapColumnWidth;
 	private int mapLaneHeight;
 	private String mapName;
 	private int mapNumberOfColumns;
 	private int mapNumberOfRows;
-	private Map<String, Image> imageMap;
-	private Frog frog;
-	private Lane[] lanes;
 	private String resourcePath;
-
-	public String getBackgroundImageKey() {
-		return this.mapBackgroundImageKey;
-	}
-
-	public String getMapName() {
-		return this.mapName;
-	}
-	
-	public int getStartingLives() {
-		return this.startingLives;
-	}
-
-	public int getColumnWidth() {
-		return this.mapColumnWidth;
-	}
-
-	public int getLaneHeight() {
-		return this.mapLaneHeight;
-	}
-
-	public int getNumberOfColumns() {
-		return this.mapNumberOfColumns;
-	}
-
-	public int getNumberOfRows() {
-		return this.mapNumberOfRows;
-	}
-
-	public Frog getFrog() {
-		return this.frog;
-	}
-
-	public Lane[] getLanes() {
-		return this.lanes;
-	}
-
-	// public String backgroundImage;
-	// public int frogStartCol;
-	// public int frogStartRow;
-	// public ArrayList<Sprite> enemies;
+	private int startingLives;
 
 	public Config(String xmlName) {
 
@@ -87,17 +46,18 @@ public class Config {
 			// http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
 			doc.getDocumentElement().normalize();
 
-			System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+			//System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
 
 			NodeList mapNodes = doc.getElementsByTagName("Map");
 
 			for (int i = 0; i < mapNodes.getLength(); i++) {
 				Element curNode = (Element) mapNodes.item(i);
-				System.out.println("Current Node: " + curNode.getNodeName());
+				// System.out.println("Current Node: " + curNode.getNodeName());
 
 				this.mapName = curNode.getElementsByTagName("Name").item(0).getFirstChild().getTextContent();
-				this.startingLives = Integer.parseInt(curNode.getElementsByTagName("StartingLives").item(0).getFirstChild().getTextContent());
 				this.resourcePath += curNode.getElementsByTagName("LevelFolder").item(0).getFirstChild().getTextContent() + "/";
+				this.startingLives = Integer.parseInt(curNode.getElementsByTagName("StartingLives").item(0).getFirstChild().getTextContent());
+				
 				this.mapBackgroundImageKey = curNode.getElementsByTagName("BackgroundImage").item(0).getFirstChild().getTextContent();
 				addImageToMap(mapBackgroundImageKey);
 				this.mapColumnWidth = Integer.parseInt(curNode.getElementsByTagName("ColumnWidth").item(0).getFirstChild().getTextContent());
@@ -133,7 +93,7 @@ public class Config {
 				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 2) * this.mapLaneHeight), frogImageKeys, this.imageMap.get(frogImageKeys.get(0)).getWidth(null));
 
 				for (int laneIndex = 0; laneIndex < laneNodes.getLength(); laneIndex++) {
-					System.out.println("lane " + laneIndex + ":");
+					// System.out.println("lane " + laneIndex + ":");
 					Element curLane = (Element) laneNodes.item(laneIndex);
 					String friendlyString = curLane.getElementsByTagName("IsFriendly").item(0).getFirstChild().getTextContent();
 					boolean laneIsFriendly = Boolean.parseBoolean(friendlyString);
@@ -147,7 +107,7 @@ public class Config {
 						Element curSprite = (Element) spriteList.item(spriteIndex);
 
 						String spriteType = curSprite.getElementsByTagName("Type").item(0).getFirstChild().getTextContent();
-						System.out.println(spriteType);
+						// System.out.println(spriteType);
 						int spriteXCoord = Integer.parseInt(curSprite.getElementsByTagName("XCoord").item(0).getFirstChild().getTextContent());
 						int spriteYCoord = laneIndex * this.mapLaneHeight;
 						int spriteSpeed = Integer.parseInt(curSprite.getElementsByTagName("Speed").item(0).getFirstChild().getTextContent());
@@ -170,9 +130,19 @@ public class Config {
 						}
 					} // end Sprites
 				} // end Lanes
+				String lifeImage = curNode.getElementsByTagName("LifeImage").item(0).getFirstChild().getTextContent();
+				addImageToMap(lifeImage);
+				for (int lifeIndex = 0; lifeIndex < this.startingLives; lifeIndex++) {
+					ArrayList<String> lifeImageKeys = new ArrayList<String>();
+					lifeImageKeys.add(lifeImage);
+					lifeImageKeys.add("Transparent.png");
+					int laneIndex = lanes.length - 1;
+					this.lanes[laneIndex].addSprite(new Life(new Point(lifeIndex * 25, laneIndex * this.mapLaneHeight), lifeImageKeys, this.imageMap.get(lifeImage).getWidth(null)));
+				}
 			} // end Map
 		} catch (Exception e) {
-			System.out.println("wait");
+			System.out.println("Error reading config file:");
+			e.printStackTrace();
 		}
 	}
 
@@ -183,7 +153,7 @@ public class Config {
 				BufferedImage bfImage = ImageIO.read(new File(imagePath));
 				this.imageMap.put(imageName, bfImage);
 			} else {
-				System.out.println("image already in map: " + imageName);
+				//System.out.println("image already in map: " + imageName);
 			}
 		} catch (IOException e) {
 			System.out.println("Error reading file: " + imageName);
@@ -191,7 +161,43 @@ public class Config {
 		}
 	}
 
+	public String getBackgroundImageKey() {
+		return this.mapBackgroundImageKey;
+	}
+
+	public int getColumnWidth() {
+		return this.mapColumnWidth;
+	}
+
 	public Map<String, Image> getImageMap() {
 		return this.imageMap;
+	}
+
+	public Frog getFrog() {
+		return this.frog;
+	}
+
+	public int getLaneHeight() {
+		return this.mapLaneHeight;
+	}
+
+	public Lane[] getLanes() {
+		return this.lanes;
+	}
+
+	public String getMapName() {
+		return this.mapName;
+	}
+
+	public int getNumberOfColumns() {
+		return this.mapNumberOfColumns;
+	}
+
+	public int getNumberOfRows() {
+		return this.mapNumberOfRows;
+	}
+	
+	public int getStartingLives() {
+		return this.startingLives;
 	}
 }

@@ -12,12 +12,12 @@ public class Lane {
 		this.isFriendly = isFriendlyLane;
 	}
 
-	public boolean isFriendly() {
-		return this.isFriendly;
-	}
-
 	public void addSprite(Sprite s) {
 		sprites.add(s);
+	}
+
+	public boolean isFriendly() {
+		return this.isFriendly;
 	}
 
 }

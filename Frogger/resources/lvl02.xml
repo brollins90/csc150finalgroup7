@@ -4,6 +4,7 @@
 
 		<Name>Level 2 - Frogger</Name>
 		<StartingLives>3</StartingLives>
+		<LifeImage>fly01.png</LifeImage>
 		<LevelFolder>lvl02</LevelFolder>
 		<BackgroundImage>lvl02-bg.png</BackgroundImage>
 		<ColumnWidth>25</ColumnWidth>

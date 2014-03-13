@@ -4,6 +4,7 @@
 
 		<Name>Level 1 - Mario</Name>
 		<StartingLives>3</StartingLives>
+		<LifeImage>fly01.png</LifeImage>
 		<LevelFolder>lvl01</LevelFolder>
 		<BackgroundImage>lvl01-bg.png</BackgroundImage>
 		<ColumnWidth>25</ColumnWidth>

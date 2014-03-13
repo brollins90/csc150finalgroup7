@@ -22,18 +22,7 @@ public class Frog extends Sprite {
 		this.speed = 0;
 	}
 
-	public void setPosition(Point newPosition) {
-		super.position = newPosition;
-	}
-
-	public void setSpeed(int newSpeed) {
-		this.speed = newSpeed;
-	}
-
-	public void reset() {
-		this.position = startingLocation;
-	}
-
+	@Override
 	public void move() {
 		this.position = new Point(this.position.x + this.speed, this.position.y);
 	}
@@ -77,6 +66,18 @@ public class Frog extends Sprite {
 			}
 		}
 
+	}
+
+	public void reset() {
+		this.position = startingLocation;
+	}
+
+	public void setPosition(Point newPosition) {
+		super.position = newPosition;
+	}
+
+	public void setSpeed(int newSpeed) {
+		this.speed = newSpeed;
 	}
 
 }
