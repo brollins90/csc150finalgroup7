@@ -7,7 +7,7 @@ public class Controller {
 		// Open the Map Loader Panel
 		Config currentMap = new Config("lvl02.xml");
 
-		// Start main frogger game with selected map
+		// // Start main frogger game with selected map
 		Game currentGame = new Game(currentMap);
 		currentGame.play();
 
