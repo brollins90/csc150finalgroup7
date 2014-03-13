@@ -74,21 +74,21 @@
 						<Sprite>
 				<Type>Turtle</Type>
 				<XCoord>0</XCoord>
-				<Speed>4</Speed>
+				<Speed>7</Speed>
 				<Image>log.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 			<Sprite>
 				<Type>Turtle</Type>
 				<XCoord>100</XCoord>
-				<Speed>4</Speed>
+				<Speed>7</Speed>
 				<Image>log.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 						<Sprite>
 				<Type>Turtle</Type>
 				<XCoord>300</XCoord>
-				<Speed>4</Speed>
+				<Speed>7</Speed>
 				<Image>log.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
