@@ -22,15 +22,15 @@
 
 		<!-- Top -->
 		<Lane>
-			<IsBad>false</IsBad>
+			<IsFriendly>true</IsFriendly>
 		</Lane>
 		<!-- Lane 0 - Lilly Pads -->
 		<Lane>
-			<IsBad>false</IsBad>
+			<IsFriendly>false</IsFriendly>
 		</Lane>
 		<!-- Lane 1 - Log Right -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>false</IsFriendly>
 			<Sprite>
 				<Type>Turtle</Type>
 				<XCoord>5</XCoord>
@@ -55,7 +55,7 @@
 		</Lane>
 		<!-- Lane 2 - Turtle left -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>false</IsFriendly>
 			<Sprite>
 				<Type>Turtle</Type>
 				<XCoord>45</XCoord>
@@ -139,7 +139,7 @@
 		</Lane>
 		<!-- Lane 3 - Log Right -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>false</IsFriendly>
 			<Sprite>
 				<Type>Turtle</Type>
 				<XCoord>15</XCoord>
@@ -157,7 +157,7 @@
 		</Lane>
 		<!-- Lane 4 - Log Right -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>false</IsFriendly>
 			<Sprite>
 				<Type>Turtle</Type>
 				<XCoord>50</XCoord>
@@ -175,7 +175,7 @@
 		</Lane>
 		<!-- Lane 5 - Turtle left -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>false</IsFriendly>
 			<Sprite>
 				<Type>Turtle</Type>
 				<XCoord>45</XCoord>
@@ -299,11 +299,11 @@
 		</Lane>
 		<!-- Lane 6 - Grass -->
 		<Lane>
-			<IsBad>false</IsBad>
+			<IsFriendly>true</IsFriendly>
 		</Lane>
 		<!-- Lane 7 - Car Left -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>true</IsFriendly>
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>100</XCoord>
@@ -314,7 +314,7 @@
 		</Lane>
 		<!-- Lane 8 - Car Right -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>true</IsFriendly>
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>0</XCoord>
@@ -325,7 +325,7 @@
 		</Lane>
 		<!-- Lane 9 - Car Left -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>true</IsFriendly>
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>0</XCoord>
@@ -336,7 +336,7 @@
 		</Lane>
 		<!-- Lane 10 - Car Right -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>true</IsFriendly>
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>0</XCoord>
@@ -349,7 +349,7 @@
 		</Lane>
 		<!-- Lane 11 - Car Left -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>true</IsFriendly>
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>0</XCoord>
@@ -360,12 +360,12 @@
 		</Lane>
 		<!-- Lane 12 - Grass -->
 		<Lane>
-			<IsBad>false</IsBad>
+			<IsFriendly>true</IsFriendly>
 		</Lane>
 
 		<!-- Bottom -->
 		<Lane>
-			<IsBad>false</IsBad>
+			<IsFriendly>true</IsFriendly>
 		</Lane>
 	</Map>
 </SuperFrogger>

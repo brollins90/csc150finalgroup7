@@ -21,11 +21,11 @@
 		</Frog>
 		<!-- TOP -->
 		<Lane>
-			<IsBad>false</IsBad>
+			<IsFriendly>true</IsFriendly>
 		</Lane>
 		<!-- Lane 0 - Lilly Pads -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>false</IsFriendly>
 			<Sprite>
 				<Type>LillyPad</Type>
 				<XCoord>21</XCoord>
@@ -69,11 +69,11 @@
 		</Lane>
 		<!-- Lane 1 - Log Right -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>false</IsFriendly>
 		</Lane>
 		<!-- Lane 2 - Turtle left -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>false</IsFriendly>
 			<Sprite>
 				<Type>Turtle</Type>
 				<XCoord>0</XCoord>
@@ -127,15 +127,15 @@
 		</Lane>
 		<!-- Lane 3 - Log Right -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>false</IsFriendly>
 		</Lane>
 		<!-- Lane 4 - Log Right -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>false</IsFriendly>
 		</Lane>
 		<!-- Lane 5 - Turtle left -->
 		<Lane>
-			<IsBad>true</IsBad><!-- <Sprite> <Type>Car</Type> <XCoord>30</XCoord> 
+			<IsFriendly>false</IsFriendly><!-- <Sprite> <Type>Car</Type> <XCoord>30</XCoord> 
 				<Speed>-6</Speed> <Image>Wiggler Floating.png</Image> <ChangeTime>0</ChangeTime> 
 				</Sprite> <Sprite> <Type>Car</Type> <XCoord>110</XCoord> <Speed>-6</Speed> 
 				<Image>Wiggler Floating.png</Image> <ChangeTime>0</ChangeTime> </Sprite> 
@@ -144,11 +144,11 @@
 		</Lane>
 		<!-- Lane 6 - Grass -->
 		<Lane>
-			<IsBad>false</IsBad>
+			<IsFriendly>true</IsFriendly>
 		</Lane>
 		<!-- Lane 7 - Car Left -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>true</IsFriendly>
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>100</XCoord>
@@ -188,7 +188,7 @@
 		</Lane>
 		<!-- Lane 8 - Car Right -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>true</IsFriendly>
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>0</XCoord>
@@ -220,7 +220,7 @@
 		</Lane>
 		<!-- Lane 9 - Car Left -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>true</IsFriendly>
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>0</XCoord>
@@ -248,7 +248,7 @@
 		</Lane>
 		<!-- Lane 10 - Car Right -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>true</IsFriendly>
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>0</XCoord>
@@ -301,7 +301,7 @@
 		</Lane>
 		<!-- Lane 11 - Car Left -->
 		<Lane>
-			<IsBad>true</IsBad>
+			<IsFriendly>true</IsFriendly>
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>0</XCoord>
@@ -332,11 +332,11 @@
 		</Lane>
 		<!-- Lane 12 - Grass -->
 		<Lane>
-			<IsBad>false</IsBad>
+			<IsFriendly>true</IsFriendly>
 		</Lane>
 		<!-- Bottom -->
 		<Lane>
-			<IsBad>false</IsBad>
+			<IsFriendly>true</IsFriendly>
 		</Lane>
 	</Map>
 </SuperFrogger>
