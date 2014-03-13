@@ -27,20 +27,20 @@ public class GamePanel extends JPanel {
 		this.gameListener = gameListener;
 		this.sprites = newSprites;
 		this.frog = newFrog;
-
-		JFrame frame = new JFrame("Super Frogger");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+//
+//		JFrame frame = new JFrame("Super Frogger");
+//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame.setLocationRelativeTo(null);
 
 		this.setFocusable(true);
 		this.addKeyListener(new PanelKeyListener());
 
 		// TODO set preferredSize
 		this.setPreferredSize(new Dimension(350, 600));
-
-		frame.setContentPane(this);
-		frame.pack();
-		frame.setVisible(true);
+//
+//		frame.setContentPane(this);
+//		frame.pack();
+//		frame.setVisible(true);
 
 	}
 
@@ -49,10 +49,7 @@ public class GamePanel extends JPanel {
 		super.paintComponent(g);
 
 		// Paint the background
-		g.drawImage(this.imageMap.get(backgroundImageKey), 0, 0, null);// ,
-																		// getWidth(),
-																		// getHeight(),
-																		// this);
+		g.drawImage(this.imageMap.get(backgroundImageKey), 0, 0, null);
 
 		// Paint the Enemies
 		for (Sprite s : this.sprites) {
@@ -79,21 +76,21 @@ public class GamePanel extends JPanel {
 
 		@Override
 		public void keyPressed(KeyEvent arg0) {
-			// System.out.println("panel-keyPressed: " + arg0.getKeyCode());
+			System.out.println("panel-keyPressed: " + arg0.getKeyCode());
 			gameListener.keyPressed(arg0);
 			repaint();
 		}
 
 		@Override
 		public void keyReleased(KeyEvent arg0) {
-			// System.out.println("panel-keyReleased: " + arg0.getKeyCode());
+			System.out.println("panel-keyReleased: " + arg0.getKeyCode());
 			gameListener.keyReleased(arg0);
 			repaint();
 		}
 
 		@Override
 		public void keyTyped(KeyEvent arg0) {
-			// System.out.println("panel-keyTyped: " + arg0.getKeyCode());
+			System.out.println("panel-keyTyped: " + arg0.getKeyCode());
 			gameListener.keyTyped(arg0);
 		}
 

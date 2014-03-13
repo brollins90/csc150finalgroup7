@@ -16,20 +16,21 @@ public class Game {
 	private ArrayList<Sprite> sprites;
 	private int timerNumber = 100;
 	private int lives;
+	private int lillyPadsLeft = 5;
+	private boolean gameRunning = false;
 
-	public Game(Config map) {
+	public Game(Config map, KeyListener frameListener) {
 		// Load the map
 		loadMap(map);
 
 		// Create the GamePanel
 		this.panel = new GamePanel(map.getBackgroundImageKey(), new GameKeyListener(), map.getImageMap(), this.sprites, this.frog);
 		
-		TimerListener tListener = new TimerListener();
-		Timer gameTimer = new Timer(this.timerNumber, tListener);
-		gameTimer.setRepeats(true);
-		gameTimer.start();
 	}
 
+	public GamePanel getGamePanel() {
+		return this.panel;
+	}
 	private void loadMap(Config map) {
 		this.map = map;
 		this.sprites = new ArrayList<Sprite>();
@@ -45,7 +46,12 @@ public class Game {
 	}
 
 	public void play() {
-		updatePanel();
+		this.gameRunning = true;
+		
+		TimerListener tListener = new TimerListener();
+		Timer gameTimer = new Timer(this.timerNumber, tListener);
+		gameTimer.setRepeats(true);
+		gameTimer.start();
 	}
 
 	private void updatePanel() {
@@ -57,8 +63,27 @@ public class Game {
 		if (lives > 0) {
 			frog.reset();
 		} else {
-			System.exit(0);
+			gameLost();
 		}
+	}
+
+	private void addLillyPadPoint(LillyPad currentPad) {
+		frog.reset();
+		currentPad.setImage(LillyPad.lillypad_completed.COMPLETED.ordinal());
+		lillyPadsLeft--;
+		if (lillyPadsLeft < 1) {
+			gameWon();
+		}
+	}
+
+	private void gameWon() {
+		System.out.println("YAY!!! You won.");
+		this.gameRunning = false;
+	}
+
+	private void gameLost() {
+		System.out.println("Sorry, you lost :(");
+		this.gameRunning = false;
 	}
 
 	private void checkCollision() {
@@ -73,15 +98,14 @@ public class Game {
 				if (!s.isFriendly()) {
 					killFrog();
 				} else {
-					// If it is a Log 
+					// If it is a Log
 					if (s instanceof Log) {
 						frog.setSpeed(((Log) s).getSpeed());
 						frog.move();
 					}
 					// If it is a LillyPad
 					else if (s instanceof LillyPad) {
-						frog.reset();
-						s.setImage(LillyPad.lillypad_completed.COMPLETED.ordinal());
+						addLillyPadPoint((LillyPad) s);
 					}
 				}
 			}
@@ -127,18 +151,18 @@ public class Game {
 
 		@Override
 		public void keyPressed(KeyEvent arg0) {
-			// System.out.println("game-keyPressed: " + arg0.getKeyCode());
+			 System.out.println("game-keyPressed: " + arg0.getKeyCode());
 			receiveKey(arg0.getKeyCode());
 		}
 
 		@Override
 		public void keyReleased(KeyEvent arg0) {
-			// System.out.println("game-keyReleased: " + arg0.getKeyCode());
+			 System.out.println("game-keyReleased: " + arg0.getKeyCode());
 		}
 
 		@Override
 		public void keyTyped(KeyEvent arg0) {
-			// System.out.println("game-keyTyped: " + arg0.getKeyCode());
+			 System.out.println("game-keyTyped: " + arg0.getKeyCode());
 		}
 
 	}
@@ -147,10 +171,14 @@ public class Game {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// Move
-			moveSprites();
-			// Check Collision
-			checkCollision();
+			if (gameRunning) {
+				// Move
+				moveSprites();
+				// Check Collision
+				checkCollision();
+			} else {
+				// stop the game and return
+			}
 		}
 
 	}
