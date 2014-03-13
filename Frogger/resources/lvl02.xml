@@ -27,6 +27,46 @@
 		<!-- Lane 0 - Lilly Pads -->
 		<Lane>
 			<IsFriendly>false</IsFriendly>
+			<Sprite>
+				<Type>LillyPad</Type>
+				<XCoord>21</XCoord>
+				<Speed>0</Speed>
+				<Image>lillypad-01.png</Image>
+				<Image>lillypad-02.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>LillyPad</Type>
+				<XCoord>91</XCoord>
+				<Speed>0</Speed>
+				<Image>lillypad-01.png</Image>
+				<Image>lillypad-02.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>LillyPad</Type>
+				<XCoord>161</XCoord>
+				<Speed>0</Speed>
+				<Image>lillypad-01.png</Image>
+				<Image>lillypad-02.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>LillyPad</Type>
+				<XCoord>231</XCoord>
+				<Speed>0</Speed>
+				<Image>lillypad-01.png</Image>
+				<Image>lillypad-02.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>LillyPad</Type>
+				<XCoord>301</XCoord>
+				<Speed>0</Speed>
+				<Image>lillypad-01.png</Image>
+				<Image>lillypad-02.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
 		</Lane>
 		<!-- Lane 1 - Log Right -->
 		<Lane>
