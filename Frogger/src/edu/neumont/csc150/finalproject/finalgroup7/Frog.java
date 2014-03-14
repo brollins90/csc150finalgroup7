@@ -50,6 +50,12 @@ public class Frog extends Sprite {
 		this.position = new Point(this.position.x + this.speed, this.position.y);
 	}
 
+
+	//CSC150 Identified Requirement – 3.1 Overloading
+	/*
+	*  The move method is overloaded, so it either moves that automatic amount, or it moves in the 
+	*  direction that the user inputs
+	*/
 	/**
 	 * Updates the Frog's position based on the FrogDirection passed in
 	 * @param dir	The direction for the Frog to move

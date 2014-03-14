@@ -8,12 +8,27 @@ import java.util.ArrayList;
  * 
  * @author Blake Rollins & Wyatt Reynolds
  */
+
+//CSC150 Identified Requirement – 4.1 Two classes inherit
+/*
+*  Enemy Friendly and Frog all inherit from Sprite
+*/
 public abstract class Sprite {
 
+	//CSC150 Identified Requirement – 1.5 Foregone setters
+	/*
+	*  The imageKeys are only set during construction, nothing outside of the class can change the images
+	*/
 	protected ArrayList<String> imageKeys;
 	protected Point position;
 	protected int imageIndex;
 	protected int width;
+
+	//CSC150 Identified Requirement – 1.5 Foregone setters
+	/*
+	*  The friendly setting can only get set inside the class (or and inherited class) this protects the
+	*  information and disallows the calling code from changing the game in ways that it shouldn't change  
+	*/
 	protected boolean friendly;
 
 	/**

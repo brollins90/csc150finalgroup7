@@ -10,6 +10,12 @@ import java.util.ArrayList;
  */
 public class Enemy extends Sprite {
 	protected int speed;
+	//CSC150 Identified Requirement – 1.4 Foregone getters
+	/*
+	*  The changeTimes only have to do with the internal data of the Enemies, so it is not exposed outside of the class
+	*  Outside of the Enemy class, all that is seen is what the current image is.
+	*/
+
 	protected int changeTimeDefault;
 	protected int changeTime;
 
@@ -28,8 +34,19 @@ public class Enemy extends Sprite {
 	 *            The amount of time to wait before rotating the images
 	 */
 	public Enemy(Point startPosition, ArrayList<String> imageKeys, int width, int spriteSpeed, int changeTime) {
+		//CSC150 Identified Requirement – 4.2 Calling super()
+		/*
+		*  All the classes that inherit from Sprite call the super constructor because they all need the data that is 
+		*  created in that constructor
+		*/
 		super(startPosition, imageKeys, width);
 		this.speed = spriteSpeed;
+
+		//CSC150 Identified Requirement – 4.3 Calling super. anything
+		/*
+		*  All the classes that inherit form Enemy or Sprite use the super.something syntax
+		*  to change their parent's data.
+		*/
 		super.friendly = false;
 		this.changeTimeDefault = changeTime;
 		this.changeTime = changeTime;
@@ -43,6 +60,12 @@ public class Enemy extends Sprite {
 	/**
 	 * Updates the Sprite's position based on the current location and the speed
 	 */
+
+	//CSC150 Identified Requirement – 4.4 Method Overriding
+	/*
+	*  The Sprite class declares the move method abstract, so most of the classes
+	*  in this program override the move() method
+	*/
 	@Override
 	public void move() {
 		this.position = new Point(this.position.x + speed, this.position.y);

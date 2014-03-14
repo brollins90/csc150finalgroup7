@@ -181,6 +181,12 @@ public class Game {
 	 */
 	private void moveSprites() {
 		for (Sprite s : sprites) {
+
+			//CSC150 Identified Requirement – 6.2 dynamic results
+			/*
+			*  All the sprites move in a different way, some update their pictures, and some 
+			*  just update their position
+			*/
 			s.move();
 		}
 		updatePanel();

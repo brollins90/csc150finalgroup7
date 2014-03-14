@@ -39,8 +39,12 @@ public class Config {
 	 * Takes in an xml file and creates all the required objects for the game
 	 * @param xmlName The name of the xml file (Just the file name, the path is pulled from the jar location)
 	 */
-	public Config(String xmlName) {
+	public Config(String xmlName) throws ConfigurationException {
 
+		//CSC150 Identified Requirement – 9.1 Try - Catch
+		/*
+		*  Anything that has to load and read a file might fail, so it is wrapped in a try-catch block
+		*/
 		try {
 			this.imageMap = new HashMap<String, Image>();
 
@@ -151,8 +155,12 @@ public class Config {
 				}
 			} // end Map
 		} catch (Exception e) {
-			System.out.println("Error reading config file:");
-			e.printStackTrace();
+			//CSC150 Selected Requirement – 9.3 Exception propagation
+			/*
+			* I am propagating the exception to the calling class, since it can handle the error better than the Config class can.
+			*/
+
+			throw new ConfigurationException("Error reading config file:");
 		}
 	}
 

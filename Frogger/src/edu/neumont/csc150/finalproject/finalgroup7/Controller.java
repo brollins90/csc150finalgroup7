@@ -47,13 +47,17 @@ public class Controller {
 		if (this.lPanel != null) {
 			lPanel.getLoaderFrame().setVisible(false);
 		}
-		
-		Config levelConfig = new Config(levelFileName);
-		Game currentGame = new Game(levelConfig, new ControllerListener());
-		
-		// Save a reference to the GamePanel so we can switch back to the LoaderPanel after the game 
-		this.gPanel = currentGame.getGamePanel();
-		currentGame.play();
+		try {
+			Config levelConfig = new Config(levelFileName);
+			Game currentGame = new Game(levelConfig, new ControllerListener());
+			
+			// Save a reference to the GamePanel so we can switch back to the LoaderPanel after the game 
+			this.gPanel = currentGame.getGamePanel();
+			currentGame.play();
+		} catch (ConfigurationException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
 	}
 	
 	/**
