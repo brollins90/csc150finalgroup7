@@ -1,5 +1,6 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -109,6 +110,9 @@ public class Game {
 	 */
 	private void gameLost() {
 		System.out.println("Sorry, you lost :(");
+		ArrayList<String> image = new ArrayList<>();
+		image.add("you-lose.png");
+		this.sprites.add(new Message(new Point(75, 100), image, 200));
 		this.gameRunning = false;
 	}
 
@@ -117,6 +121,9 @@ public class Game {
 	 */
 	private void gameWon() {
 		System.out.println("YAY!!! You won.");
+		ArrayList<String> image = new ArrayList<>();
+		image.add("you-win.png");
+		this.sprites.add(new Message(new Point(75, 100), image, 200));
 		this.gameRunning = false;
 	}
 	

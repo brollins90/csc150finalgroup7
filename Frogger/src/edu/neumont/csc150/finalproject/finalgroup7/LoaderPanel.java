@@ -1,11 +1,13 @@
 package edu.neumont.csc150.finalproject.finalgroup7;
 
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -28,6 +30,7 @@ public class LoaderPanel extends JPanel {
 	 */
 	public LoaderPanel(ActionListener lListener) {
 
+		
 		this.levelArray = new ArrayList<File>();
 		this.loaderListener = lListener;
 
@@ -54,7 +57,7 @@ public class LoaderPanel extends JPanel {
 		this.setFocusable(true);
 		
 		// TODO: dynamically set the preferredSize
-		this.setPreferredSize(new Dimension(350, 600));
+		this.setPreferredSize(new Dimension(350, 520));
 
 		// Add a button for each file
 		for (File f : levelArray) {
@@ -66,6 +69,20 @@ public class LoaderPanel extends JPanel {
 		this.loaderFrame.setContentPane(this);
 		this.loaderFrame.pack();
 		this.loaderFrame.setVisible(true);
+	}
+
+	/**
+	 * Pains all the Sprites on the panel
+	 */
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		try {
+		// Paint the background
+		g.drawImage(ImageIO.read(new File(ClassLoader.getSystemClassLoader().getResource(".").getPath() + "TitleScreen.png")), 0, 0, null);
+		} catch (Exception e) {
+			
+		}
 	}
 
 	/**
