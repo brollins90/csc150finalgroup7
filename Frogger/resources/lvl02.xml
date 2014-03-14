@@ -184,14 +184,14 @@
 			<Sprite>
 				<Type>Log</Type>
 				<XCoord>15</XCoord>
-				<Speed>6</Speed>
+				<Speed>8</Speed>
 				<Image>log03.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 			<Sprite>
 				<Type>Log</Type>
 				<XCoord>215</XCoord>
-				<Speed>6</Speed>
+				<Speed>8</Speed>
 				<Image>log03.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
@@ -202,14 +202,14 @@
 			<Sprite>
 				<Type>Log</Type>
 				<XCoord>50</XCoord>
-				<Speed>6</Speed>
+				<Speed>4</Speed>
 				<Image>log01.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 			<Sprite>
 				<Type>Log</Type>
 				<XCoord>186</XCoord>
-				<Speed>6</Speed>
+				<Speed>5</Speed>
 				<Image>log01.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
@@ -347,7 +347,28 @@
 			<IsFriendly>true</IsFriendly>
 			<Sprite>
 				<Type>Car</Type>
-				<XCoord>100</XCoord>
+				<XCoord>0</XCoord>
+				<Speed>-5</Speed>
+				<Image>car05.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>125</XCoord>
+				<Speed>-5</Speed>
+				<Image>car05.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>200</XCoord>
+				<Speed>-5</Speed>
+				<Image>car05.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>300</XCoord>
 				<Speed>-5</Speed>
 				<Image>car05.png</Image>
 				<ChangeTime>0</ChangeTime>
@@ -363,6 +384,20 @@
 				<Image>car02.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>150</XCoord>
+				<Speed>6</Speed>
+				<Image>car02.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>200</XCoord>
+				<Speed>6</Speed>
+				<Image>car02.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
 		</Lane>
 		<!-- Lane 9 - Car Left -->
 		<Lane>
@@ -370,7 +405,28 @@
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>0</XCoord>
-				<Speed>-2</Speed>
+				<Speed>-3</Speed>
+				<Image>car01.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>50</XCoord>
+				<Speed>-3</Speed>
+				<Image>car01.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>100</XCoord>
+				<Speed>-3</Speed>
+				<Image>car01.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>150</XCoord>
+				<Speed>-3</Speed>
 				<Image>car01.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
@@ -381,7 +437,43 @@
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>0</XCoord>
-				<Speed>4</Speed>
+				<Speed>2</Speed>
+				<Image>car04-01.png</Image>
+				<Image>car04-03.png</Image>
+				<Image>car04-02.png</Image>
+				<ChangeTime>3</ChangeTime>
+			</Sprite>
+						<Sprite>
+				<Type>Car</Type>
+				<XCoord>140</XCoord>
+				<Speed>2</Speed>
+				<Image>car04-01.png</Image>
+				<Image>car04-03.png</Image>
+				<Image>car04-02.png</Image>
+				<ChangeTime>3</ChangeTime>
+			</Sprite>
+						<Sprite>
+				<Type>Car</Type>
+				<XCoord>200</XCoord>
+				<Speed>2</Speed>
+				<Image>car04-01.png</Image>
+				<Image>car04-03.png</Image>
+				<Image>car04-02.png</Image>
+				<ChangeTime>3</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>275</XCoord>
+				<Speed>2</Speed>
+				<Image>car04-01.png</Image>
+				<Image>car04-03.png</Image>
+				<Image>car04-02.png</Image>
+				<ChangeTime>3</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>320</XCoord>
+				<Speed>2</Speed>
 				<Image>car04-01.png</Image>
 				<Image>car04-03.png</Image>
 				<Image>car04-02.png</Image>
@@ -394,7 +486,21 @@
 			<Sprite>
 				<Type>Car</Type>
 				<XCoord>0</XCoord>
-				<Speed>-7</Speed>
+				<Speed>-8</Speed>
+				<Image>car03.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>175</XCoord>
+				<Speed>-8</Speed>
+				<Image>car03.png</Image>
+				<ChangeTime>0</ChangeTime>
+			</Sprite>
+			<Sprite>
+				<Type>Car</Type>
+				<XCoord>275</XCoord>
+				<Speed>-8</Speed>
 				<Image>car03.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
