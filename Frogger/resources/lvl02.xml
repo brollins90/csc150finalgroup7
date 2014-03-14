@@ -202,7 +202,7 @@
 			<Sprite>
 				<Type>Log</Type>
 				<XCoord>50</XCoord>
-				<Speed>4</Speed>
+				<Speed>5</Speed>
 				<Image>log01.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
