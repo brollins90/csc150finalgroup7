@@ -69,25 +69,25 @@
 			</Sprite>
 		</Lane>
 		<!-- Lane 1 - Log Right -->
-		
+
 		<Lane>
 			<IsFriendly>false</IsFriendly>
-						<Sprite>
-				<Type>Turtle</Type>
+			<Sprite>
+				<Type>Log</Type>
 				<XCoord>0</XCoord>
 				<Speed>7</Speed>
 				<Image>log.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>100</XCoord>
 				<Speed>7</Speed>
 				<Image>log.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
-						<Sprite>
-				<Type>Turtle</Type>
+			<Sprite>
+				<Type>Log</Type>
 				<XCoord>300</XCoord>
 				<Speed>7</Speed>
 				<Image>log.png</Image>
@@ -180,15 +180,15 @@
 		<!-- Lane 3 - Log Right -->
 		<Lane>
 			<IsFriendly>false</IsFriendly>
-									<Sprite>
-				<Type>Turtle</Type>
+			<Sprite>
+				<Type>Log</Type>
 				<XCoord>0</XCoord>
 				<Speed>4</Speed>
 				<Image>log.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>77</XCoord>
 				<Speed>4</Speed>
 				<Image>log.png</Image>
@@ -198,34 +198,33 @@
 		<!-- Lane 4 - Log Right -->
 		<Lane>
 			<IsFriendly>false</IsFriendly>
-						<IsFriendly>false</IsFriendly>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>50</XCoord>
 				<Speed>2</Speed>
 				<Image>log.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>200</XCoord>
 				<Speed>2</Speed>
 				<Image>log.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>290</XCoord>
 				<Speed>2</Speed>
 				<Image>log.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
-			
+
 		</Lane>
 		<!-- Lane 5 - Turtle left -->
 		<Lane>
 			<IsFriendly>false</IsFriendly>
-						<Sprite>
+			<Sprite>
 				<Type>Turtle</Type>
 				<XCoord>100</XCoord>
 				<Speed>-4</Speed>
@@ -268,7 +267,7 @@
 				<Image>turtle01-02.png</Image>
 				<ChangeTime>25</ChangeTime>
 			</Sprite>
-			
+
 		</Lane>
 		<!-- Lane 6 - Grass -->
 		<Lane>

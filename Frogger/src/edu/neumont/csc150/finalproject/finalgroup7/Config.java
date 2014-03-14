@@ -17,6 +17,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+/**
+ * The Config class opens an xml file and creates all the necessary objects to run the game
+ * @author Blake Rollins & Wyatt Reynolds
+ */
 public class Config {
 
 	private Frog frog;
@@ -31,6 +35,10 @@ public class Config {
 	private String resourcePath;
 	private int startingLives;
 
+	/**
+	 * Takes in an xml file and creates all the required objects for the game
+	 * @param xmlName The name of the xml file (Just the file name, the path is pulled from the jar location)
+	 */
 	public Config(String xmlName) {
 
 		try {
@@ -46,16 +54,15 @@ public class Config {
 			// http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
 			doc.getDocumentElement().normalize();
 
-			//System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
-
+			// Start with the Map element
 			NodeList mapNodes = doc.getElementsByTagName("Map");
 
 			for (int i = 0; i < mapNodes.getLength(); i++) {
 				Element curNode = (Element) mapNodes.item(i);
-				// System.out.println("Current Node: " + curNode.getNodeName());
 
 				this.mapName = curNode.getElementsByTagName("Name").item(0).getFirstChild().getTextContent();
 				this.resourcePath += curNode.getElementsByTagName("LevelFolder").item(0).getFirstChild().getTextContent() + "/";
+				// We use the StartingLives element to create the Srites for the life icons in the last lane
 				this.startingLives = Integer.parseInt(curNode.getElementsByTagName("StartingLives").item(0).getFirstChild().getTextContent());
 				
 				this.mapBackgroundImageKey = curNode.getElementsByTagName("BackgroundImage").item(0).getFirstChild().getTextContent();
@@ -92,6 +99,7 @@ public class Config {
 
 				this.frog = new Frog(new Point(frogColumn * this.mapColumnWidth, (this.mapNumberOfRows - 2) * this.mapLaneHeight), frogImageKeys, this.imageMap.get(frogImageKeys.get(0)).getWidth(null));
 
+				// Create the Lanes
 				for (int laneIndex = 0; laneIndex < laneNodes.getLength(); laneIndex++) {
 					// System.out.println("lane " + laneIndex + ":");
 					Element curLane = (Element) laneNodes.item(laneIndex);
@@ -123,6 +131,7 @@ public class Config {
 						if (spriteType.equals("Turtle")) {
 							this.lanes[laneIndex].addSprite(new Turtle(new Point(spriteXCoord, spriteYCoord), spriteImageKeys, this.imageMap.get(spriteImageKeys.get(0)).getWidth(null), spriteSpeed, spriteChangeTime));
 						} else if (spriteType.equals("Log")) {
+							this.lanes[laneIndex].addSprite(new Log(new Point(spriteXCoord, spriteYCoord), spriteImageKeys, this.imageMap.get(spriteImageKeys.get(0)).getWidth(null), spriteSpeed, spriteChangeTime));
 						} else if (spriteType.equals("Car")) {
 							this.lanes[laneIndex].addSprite(new Enemy(new Point(spriteXCoord, spriteYCoord), spriteImageKeys, this.imageMap.get(spriteImageKeys.get(0)).getWidth(null), spriteSpeed, spriteChangeTime));
 						} else if (spriteType.equals("LillyPad")) {
@@ -130,12 +139,13 @@ public class Config {
 						}
 					} // end Sprites
 				} // end Lanes
+				// Create the Sprites for the life icons
 				String lifeImage = curNode.getElementsByTagName("LifeImage").item(0).getFirstChild().getTextContent();
 				addImageToMap(lifeImage);
 				for (int lifeIndex = 0; lifeIndex < this.startingLives; lifeIndex++) {
 					ArrayList<String> lifeImageKeys = new ArrayList<String>();
 					lifeImageKeys.add(lifeImage);
-					lifeImageKeys.add("Transparent.png");
+					lifeImageKeys.add("Transparent.png"); // The second image is the "Transparent" image
 					int laneIndex = lanes.length - 1;
 					this.lanes[laneIndex].addSprite(new Life(new Point(lifeIndex * 25, laneIndex * this.mapLaneHeight), lifeImageKeys, this.imageMap.get(lifeImage).getWidth(null)));
 				}
@@ -146,6 +156,10 @@ public class Config {
 		}
 	}
 
+	/**
+	 * Adds and image to the Map of images
+	 * @param imageName	The name of the image, relative to the resourcePath set earlier
+	 */
 	private void addImageToMap(String imageName) {
 		try {
 			if (!this.imageMap.containsKey(imageName)) {

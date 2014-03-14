@@ -8,9 +8,14 @@ import java.util.ArrayList;
 
 import javax.swing.Timer;
 
+/**
+ * The Game holds all the data and logic for the Frogger game
+ * @author Blake Rollins & Wyatt Reynolds
+ *
+ */
 public class Game {
 
-	private Config map;
+	private Config config;
 	private GamePanel panel;
 	private Frog frog;
 	private ArrayList<Sprite> sprites;
@@ -20,25 +25,40 @@ public class Game {
 	private boolean gameRunning = false;
 	private ActionListener controllerListener;
 
-	public Game(Config map, ActionListener cListener) {
+	/**
+	 * The Game requires a Config object built from an xml file and a Listener to communicate with the controller class
+	 * @param config	The Config object for the current game
+	 * @param cListener	A listener for the calling Controller class
+	 */
+	public Game(Config config, ActionListener cListener) {
 		// Load the map
-		loadMap(map);
+		loadMap(config);
 		this.controllerListener = cListener;
 
-		// Create the GamePanel
-		this.panel = new GamePanel(map.getBackgroundImageKey(), new GameKeyListener(), map.getImageMap(), this.sprites, this.frog);
+		// Create the GamePanel that will display the Game
+		this.panel = new GamePanel(config.getBackgroundImageKey(), new GameKeyListener(), config.getImageMap(), this.sprites, this.frog);
 
 	}
 
+	/**
+	 * Handles the storage of scored poins
+	 * @param currentPad
+	 */
 	private void addLillyPadPoint(LillyPad currentPad) {
+		// When we score a point, move the Frog back to it's start position
 		frog.reset();
-		currentPad.setImage(LillyPad.lillypad_completed.COMPLETED.ordinal());
+		// Change the image of the LillyPad to the completed state
+		currentPad.setImage(LillyPad.LillypadCompleted.COMPLETED.ordinal());
 		lillyPadsLeft--;
+		// When all the lillypad's have been changed to the Completed state inform the user of the win
 		if (lillyPadsLeft < 1) {
 			gameWon();
 		}
 	}
-
+	
+	/**
+	 * Checks all the ways that the Frog can die, also updates the Frog location if it is riding a Log
+	 */
 	private void checkCollision() {
 
 		// Check if something moved the frog off the edge of the world
@@ -46,19 +66,17 @@ public class Game {
 			killFrog();
 		}
 
-		int currentRow = this.frog.position.y / this.map.getLaneHeight();
-		boolean laneIsFriendly = this.map.getLanes()[currentRow].isFriendly();
-
-		// check if the lane is friendly
-		// if (laneIsFriendly) {
+		int currentLane = this.frog.position.y / this.config.getLaneHeight();
+		boolean laneIsFriendly = this.config.getLanes()[currentLane].isFriendly();
 
 		boolean ridingAFriendly = false;
 		for (Sprite s : sprites) {
 			if (this.frog.checkCollision(s)) {
-				// System.out.println("COLLIDED: " + s.toString());
+				// If there was a collision with a NOT friendly Sprite, kill the Frog
 				if (!s.isFriendly()) {
 					killFrog();
-				} else {
+				} // Else, figure out what to do
+				else {
 					ridingAFriendly = true;
 					// If it is a Log
 					if (s instanceof Log) {
@@ -68,41 +86,58 @@ public class Game {
 					else if (s instanceof LillyPad) {
 						addLillyPadPoint((LillyPad) s);
 					}
+					// TODO: add the extra point items
 				}
 			}
 		}
 		if (!laneIsFriendly) {
-			// System.out.println("on a unfriendly lane");
+			// If the Lane is not friendly, and the Frog is not riding a Friendly Sprite, then kill it
 			if (!ridingAFriendly) {
-				// System.out.println("is not riding a friendly");
 				killFrog();
-			} else {
-				// System.out.println("riding a friendly");
+			} // else, tell the Frog to move the same as the Sprite that it is riding
+			else {
 				frog.move();
 			}
 		} else {
-			// System.out.println("on a friendly lane");
-			// frog is ok
+			// The Frog is ok because the lane is friendly
 
 		}
 	}
 
+	/**
+	 * Inform the user that they lost the Game
+	 */
 	private void gameLost() {
 		System.out.println("Sorry, you lost :(");
 		this.gameRunning = false;
 	}
 
+	/**
+	 * Inform the user that they won the Game
+	 */
 	private void gameWon() {
 		System.out.println("YAY!!! You won.");
 		this.gameRunning = false;
 	}
-
+	
+	/**
+	 * Returns the GamePanel, (Used by the Controller class to set and maintain focus)
+	 * @return The GamePanel that is displaying the game
+	 */
 	public GamePanel getGamePanel() {
 		return this.panel;
 	}
 
+	/**
+	 * Remove a life and move the Frog back to it's starting position
+	 */
 	private void killFrog() {
 		lives--;
+		
+		/**
+		 * This is some REALLY hacky code that will remove a life indicating Sprite from the display, 
+		 * I didn't have time to create a new SpriteCollection class that would help solve this problem
+		 */
 		boolean removedSprite = false;
 		for (int spriteIndex = this.sprites.size() -1; spriteIndex > 0; spriteIndex--) {
 			Sprite currentSprite = this.sprites.get(spriteIndex);
@@ -114,27 +149,36 @@ public class Game {
 				}
 			}
 		}
+		// If there are still some lives, reset the Frog
 		if (lives > 0) {
 			frog.reset();
-		} else {
+		} // If we are out of lives, tell the user they lost 
+		else {
 			gameLost();
 		}
 	}
-
-	private void loadMap(Config map) {
-		this.map = map;
+	
+	/**
+	 * Initialize the Game with the objects from the Config class
+	 * @param config
+	 */
+	private void loadMap(Config config) {
+		this.config = config;
 		this.sprites = new ArrayList<Sprite>();
-		this.lives = map.getStartingLives();
+		this.lives = config.getStartingLives();
 
-		for (Lane l : this.map.getLanes()) {
+		for (Lane l : this.config.getLanes()) {
 			for (Sprite s : l.sprites) {
 				sprites.add(s);
 			}
 		}
 
-		this.frog = map.getFrog();
+		this.frog = config.getFrog();
 	}
 
+	/**
+	 * Tell all the Sprites in the Game to move
+	 */
 	private void moveSprites() {
 		for (Sprite s : sprites) {
 			s.move();
@@ -142,6 +186,9 @@ public class Game {
 		updatePanel();
 	}
 
+	/**
+	 * Start the game timer and start accepting user input
+	 */
 	public void play() {
 		this.gameRunning = true;
 
@@ -151,84 +198,91 @@ public class Game {
 		gameTimer.start();
 	}
 
+	/**
+	 * Process a request from the user
+	 * @param keyCode	The inputed command from the user
+	 */
 	public void receiveKey(int keyCode) {
 		System.out.println("key was received: " + keyCode);
 
 		switch (keyCode) {
 		case 10: // 10 is Enter
 			if (!gameRunning) {
-//				System.out.println("Enter");
 				this.controllerListener.actionPerformed(new ActionEvent(this, 1, "OpenLoader"));
 			}
 			
 			break;
 		case 37: // 37 is Left
 			if (gameRunning) {
-//				System.out.println("Left");
-				this.frog.move(Frog.frog_direction.FROG_LEFT, this.map.getNumberOfRows(), this.map.getLaneHeight(), this.map.getNumberOfColumns(), this.map.getColumnWidth());
+				this.frog.move(Frog.FrogDirection.FROG_LEFT, this.config.getNumberOfRows(), this.config.getLaneHeight(), this.config.getNumberOfColumns(), this.config.getColumnWidth());
 			}
 			break;
 		case 38: // 38 is Up
 			if (gameRunning) {
-//				System.out.println("Up");
-				this.frog.move(Frog.frog_direction.FROG_UP, this.map.getNumberOfRows(), this.map.getLaneHeight(), this.map.getNumberOfColumns(), this.map.getColumnWidth());
+				this.frog.move(Frog.FrogDirection.FROG_UP, this.config.getNumberOfRows(), this.config.getLaneHeight(), this.config.getNumberOfColumns(), this.config.getColumnWidth());
 			}
 			break;
 		case 39: // 39 is Right
 			if (gameRunning) {
-//				System.out.println("Right");
-				this.frog.move(Frog.frog_direction.FROG_RIGHT, this.map.getNumberOfRows(), this.map.getLaneHeight(), this.map.getNumberOfColumns(), this.map.getColumnWidth());
+				this.frog.move(Frog.FrogDirection.FROG_RIGHT, this.config.getNumberOfRows(), this.config.getLaneHeight(), this.config.getNumberOfColumns(), this.config.getColumnWidth());
 			}
 			break;
 		case 40: // 40 is Down
 			if (gameRunning) {
-//				System.out.println("Down");
-				this.frog.move(Frog.frog_direction.FROG_DOWN, this.map.getNumberOfRows(), this.map.getLaneHeight(), this.map.getNumberOfColumns(), this.map.getColumnWidth());
+				this.frog.move(Frog.FrogDirection.FROG_DOWN, this.config.getNumberOfRows(), this.config.getLaneHeight(), this.config.getNumberOfColumns(), this.config.getColumnWidth());
 			}
 			break;
-		default:
-//			System.out.println("Other: " + keyCode);
+		default: // If it is anything else, ignore it
 			break;
 		}
-		// moveSprites();
 	}
 
+	/**
+	 * Tell the GamePanel to queue a repaint request
+	 */
 	private void updatePanel() {
 		this.panel.repaint();
 	}
 
+	/**
+	 * A class that is passed to the GamePanel for it to communicate with the Game
+	 * @author Blake Rollins & Wyatt Reynolds
+	 *
+	 */
 	private class GameKeyListener implements KeyListener {
 
 		@Override
 		public void keyPressed(KeyEvent arg0) {
-//			System.out.println("game-keyPressed: " + arg0.getKeyCode());
-			receiveKey(arg0.getKeyCode());
-			
+			receiveKey(arg0.getKeyCode());			
 		}
 
 		@Override
-		public void keyReleased(KeyEvent arg0) {
-//			System.out.println("game-keyReleased: " + arg0.getKeyCode());
-		}
+		public void keyReleased(KeyEvent arg0) { }
 
 		@Override
-		public void keyTyped(KeyEvent arg0) {
-//			System.out.println("game-keyTyped: " + arg0.getKeyCode());
-		}
-
+		public void keyTyped(KeyEvent arg0) { }
 	}
 
+	/**
+	 * A class that listens for the swing timer for update requests
+	 * @author Blake Rollins & Wyatt Reynolds
+	 *
+	 */
 	private class TimerListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			// Only update the GamePanel and move the Sprites if the game is still running
 			if (gameRunning) {
-				// Move
+				// Move all the Sprites
 				moveSprites();
-				// Check Collision
+				// Check Collisions
 				checkCollision();
-			} else {
-				// stop the game and return
+			} // We dont need to change anything since the game is no longer running 
+			else {
+				// TODO:
+				// We may need to actually stop the timer here, but since we are 
+				// killing the game soon anyway, it is probably OK
 			}
 		}
 

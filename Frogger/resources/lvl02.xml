@@ -73,21 +73,21 @@
 		<Lane>
 			<IsFriendly>false</IsFriendly>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>5</XCoord>
 				<Speed>4</Speed>
 				<Image>log02.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>140</XCoord>
 				<Speed>4</Speed>
 				<Image>log02.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>275</XCoord>
 				<Speed>4</Speed>
 				<Image>log02.png</Image>
@@ -182,14 +182,14 @@
 		<Lane>
 			<IsFriendly>false</IsFriendly>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>15</XCoord>
 				<Speed>6</Speed>
 				<Image>log03.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>215</XCoord>
 				<Speed>6</Speed>
 				<Image>log03.png</Image>
@@ -200,14 +200,14 @@
 		<Lane>
 			<IsFriendly>false</IsFriendly>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>50</XCoord>
 				<Speed>6</Speed>
 				<Image>log01.png</Image>
 				<ChangeTime>0</ChangeTime>
 			</Sprite>
 			<Sprite>
-				<Type>Turtle</Type>
+				<Type>Log</Type>
 				<XCoord>186</XCoord>
 				<Speed>6</Speed>
 				<Image>log01.png</Image>
