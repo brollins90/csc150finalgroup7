@@ -203,7 +203,6 @@ public class Game {
 	 * @param keyCode	The inputed command from the user
 	 */
 	public void receiveKey(int keyCode) {
-		System.out.println("key was received: " + keyCode);
 
 		switch (keyCode) {
 		case 10: // 10 is Enter
