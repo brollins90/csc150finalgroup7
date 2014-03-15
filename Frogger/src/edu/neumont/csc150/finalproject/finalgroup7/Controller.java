@@ -56,7 +56,8 @@ public class Controller {
 			currentGame.play();
 		} catch (ConfigurationException e) {
 			System.out.println(e);
-			e.printStackTrace();
+			System.out.println("Failed to load the level file.  Choose a new level.");
+			openLoaderPanel();
 		}
 	}
 	
